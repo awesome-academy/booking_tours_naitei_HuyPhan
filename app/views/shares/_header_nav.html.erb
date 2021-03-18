@@ -1,0 +1,64 @@
+<header class="top-area">
+  <div class="header-area">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-2">
+          <div class="logo">
+            <a href="index.html">
+              tour<span>Nest</span>
+            </a>
+          </div><!-- /.logo-->
+        </div><!-- /.col-->
+        <div class="col-sm-10">
+          <div class="main-menu">
+
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <i class="fa fa-bars"></i>
+              </button><!-- / button-->
+            </div><!-- /.navbar-header-->
+            <div class="collapse navbar-collapse">
+              <ul class="nav navbar-nav navbar-right">
+                <li class="smooth-menu"><a href="#home">home</a></li>
+                <li class="smooth-menu"><a href="#gallery">Destination</a></li>
+                <li class="smooth-menu"><a href="#pack">Packages </a></li>
+                <li class="smooth-menu"><a href="#blog">blog</a></li>
+                <li class="smooth-menu"><a href="#subs">subscription</a></li>
+                <li><%= link_to t("locale.en"), locale: :en %></li>
+                <li><%= link_to t("locale.vi"), locale: :vi %></li>
+
+                <% if logged_in? %>
+                  <li>
+                    <a href="#">
+                      <i class="font-size-30 color-ff8f00d9 fa fa-lock"></i>
+                      Account
+                    </a>
+                  </li>
+                  <li>
+                    <%= link_to logout_path, method: :DELETE do %>
+                      <i class="font-size-30 red-color fa fa-sign-out" aria-hidden="true"></i>
+                      Logout
+                    <% end %>
+                  </li>
+                <% else %>
+                  <li>
+                    <%= link_to "#", class: "btn btn-secondary btn_add", data: {toggle: "modal", target: "#exampleModal"} do %>
+                      <i class="font-size-30 color-266f26 fa fa-user"></i>
+                      Login
+                    <% end %>
+                  </li>
+                <% end %>
+                <li>
+                  <button class="book-btn">Book now </button>
+                </li><!--/.project-btn-->
+              </ul>
+            </div><!-- /.navbar-collapse -->
+          </div><!-- /.main-menu-->
+        </div><!-- /.col-->
+      </div><!-- /.row -->
+      <div class="home-border"></div><!-- /.home-border-->
+    </div><!-- /.container-->
+  </div><!-- /.header-area -->
+
+</header>

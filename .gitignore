@@ -66,3 +66,7 @@ yarn-debug.log*
 /storage/*
 !/storage/.keep
 test/*
+
+config/settings.local.yml
+config/settings/*.local.yml
+config/environments/*.local.yml

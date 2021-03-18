@@ -1,5 +1,8 @@
 en:
+  title_base: "Booking Travels"
   static_pages:
     home:
       title: "This is home page"
+  messages:
+    count_message: "Has %{count} errors!"
 

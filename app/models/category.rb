@@ -1,3 +1,3 @@
 class Category < ApplicationRecord
-  has_manby :tours
+  has_many :tours
 end
