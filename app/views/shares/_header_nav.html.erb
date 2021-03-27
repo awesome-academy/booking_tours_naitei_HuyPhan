@@ -20,12 +20,12 @@
             </div><!-- /.navbar-header-->
             <div class="collapse navbar-collapse">
               <ul class="nav navbar-nav navbar-right">
-                <li class="smooth-menu"><a href="#home">Home</a></li>
+                <li class="smooth-menu active"><a href="#home">Home</a></li>
                 <li>
                   <%= link_to "Tours", tours_path %>
                 </li>
                 <li><%= link_to t("booking_tous"), booking_tours_path %></li>
-                <li><%= link_to t("reviews"), class: "smooth-menu" %></li>
+                <li><%= link_to t("reviews"), reviews_path, class: "smooth-menu" %></li>
                 <% if logged_in? %>
                   <li>
                     <a href="#">

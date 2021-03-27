@@ -1,0 +1,8 @@
+<div class="col-12 col-md-12">
+  <!--Form with header-->
+  <%= form_for @review, url: reviews_path(@tour.id), method: :post do |f| %>
+    <%= f.text_area(:content, rows: 15, data: {provide: "markdown"}, class: "ckeditor")%>
+    <%= f.submit "Submit your content", class: "btn btn-success" %>
+  <% end %>
+  <!--Form with header-->
+</div>

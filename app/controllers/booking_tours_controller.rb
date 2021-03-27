@@ -27,7 +27,7 @@ class BookingToursController < ApplicationController
     @booking_tour.total_price = @tour.price * @booking_tour.quantity_person
 
     if @booking_tour.save
-      flash[:success] = "Dng ky tour thanh cong"
+      flash[:success] = "Dang ky tour thanh cong"
       redirect_to booking_tours_path
     else
       flash[:warning] = "Da co loi xay ra khi thuc hien dang ky, vui long load page"

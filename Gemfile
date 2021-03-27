@@ -6,6 +6,8 @@ ruby "2.7.1"
 gem "sass-rails", ">= 6"
 gem "bootstrap-sass", "3.4.1"
 gem "will_paginate", "3.1.8"
+gem 'ckeditor'
+gem 'carrierwave'
 gem "bootstrap-will_paginate", "1.0.0"
 gem "rails", "~> 6.0.3", ">= 6.0.3.4"
 gem "mysql2", ">= 0.4.4"

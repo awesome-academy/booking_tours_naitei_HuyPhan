@@ -12,5 +12,6 @@ module BookTours
     config.i18n.default_locale = :en
     I18n.available_locales = [:en, :vi]
     config.action_view.embed_authenticity_token_in_remote_forms = true
+    config.autoload_paths += %w(#{config.root}/app/models/ckeditor)
   end
 end
