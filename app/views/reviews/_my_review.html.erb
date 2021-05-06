@@ -6,7 +6,15 @@
   <td><%= review.status %></td>
   <td><%= l review.created_at %></td>
   <td>
-    <i class="text-primary fa fa-eye" aria-hidden="true"></i>
-    <i class="text-danger fa fa-times-circle-o"></i>
+     <%= link_to review_path(id: review.id) do %>
+      <i class="text-primary fa fa-eye" aria-hidden="true"></i>
+      <% end %>
+    <%= link_to review_path(id: review.id), method: :delete do %>
+      <i class="text-danger fa fa-times-circle-o"></i>
+    <% end %>
+    <%= link_to edit_review_path(id: review.id) do %>
+      <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+    <% end %>
+
   </td>
 </tr>

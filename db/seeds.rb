@@ -61,7 +61,7 @@ end
 # # reviews
 Tour.all.each do |tour|
   (0..5).each do
-    tour.reviews.create content: Faker::Lorem.paragraph(sentence_count: 50, supplemental: false, random_sentences_to_add: 10), user_id: User.all.pluck(:id).sample, point: rand(2..5), status: Review.statuses.keys.sample
+    tour.reviews.create  title: Faker::Lorem.sentence(word_count: 20),content: Faker::Lorem.paragraph(sentence_count: 50, supplemental: false, random_sentences_to_add: 10), user_id: User.all.pluck(:id).sample, point: rand(2..5), status: Review.statuses.keys.sample
   end
 end
 

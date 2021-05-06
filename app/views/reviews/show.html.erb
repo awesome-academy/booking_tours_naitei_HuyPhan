@@ -1,0 +1,81 @@
+<section id="home" class="about-us">
+  <div class="container">
+    <div class="about-us-content">
+      <div class="row header-image">
+      </div><!--/.row-->
+    </div><!--/.about-us-content-->
+  </div><!--/.container-->
+
+</section><!--/.about-us-->
+
+<div class="container">
+  <br>
+  <div class="card border-0">
+    <div class="row">
+      <aside class="col-sm-8">
+        <article class="card-body m-0 pt-0 pl-5" id="tour-info">
+          <h3 class="title text-uppercase" style="text-align: left"><%= @review.title %></h3>
+          <dl class="item-property info" style = "text-align: justify">
+            <dd><p><%= @review.content %></p></dd>
+          </dl>
+        </article>
+      </aside>
+
+      <aside class="col-sm-4">
+      <nav>
+          <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+            <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#reviews_tab" role="tab" aria-controls="nav-home" aria-selected="true" style="padding: 5px 10px; font-size: 16px;">Liên quan </a>
+            <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#my_reviews_tab" role="tab" aria-controls="nav-profile" aria-selected="false" style="padding: 5px 10px;  font-size: 16px;">Mới nhất</a>
+          </div>
+        </nav>
+        <div class="tab-content mt-3" id="nav-tabContent">
+          <div class="tab-pane fade show active in" id="reviews_tab" role="tabpanel" aria-labelledby="nav-home-tab">
+            <ul class="list post-list">
+			  <% @related_reviews.each do |related_review| %>
+				<li>
+					<div class="thumbnail overlay">
+						<%= link_to review_path(id: related_review.id) do %>
+						<img width="75" height="75" src="https://cdn3.ivivu.com/2014/10/Du-lich-vung-tau-cam-nang-tu-a-den-z-iVIVU.com-1-75x75.jpg" class="attachment-fp75_75 wp-post-image" alt="Vẻ đẹp của du lịch Vũng Tàu. Ảnh: dulichgiahy">
+						<% end %>
+					</div>
+					<div class="post-right">
+						<h5> 
+						<%= link_to related_review.title, review_path(id: related_review.id) %>
+						</h5>
+					<div class="entry-meta"> 
+					<span class="date"> 
+					<i class="icon-calendar"></i> <%= @review.created_at.to_date%>
+					</span>
+					</div>
+					</div>
+				</li>
+				<% end %>
+			</ul>
+          </div>
+          <div class="tab-pane fade" id="my_reviews_tab" role="tabpanel" aria-labelledby="nav-profile-tab">
+            <ul class="list post-list">
+		  			<% @newest_reviews.each do |newest_review| %>
+					<li>
+					<div class="thumbnail overlay">
+					<%= link_to review_path(id: newest_review.id) do %>
+					<img width="75" height="75" src="https://cdn3.ivivu.com/2014/10/Du-lich-vung-tau-cam-nang-tu-a-den-z-iVIVU.com-1-75x75.jpg" class="attachment-fp75_75 wp-post-image" alt="Vẻ đẹp của du lịch Vũng Tàu. Ảnh: dulichgiahy">
+					<% end %>
+				</div>
+				<div class="post-right">
+					<h5> 
+					<%= link_to newest_review.title, review_path(id: newest_review.id) %>
+					</h5>
+				<div class="entry-meta"> 
+				<span class="date"> 
+				<i class="icon-calendar"></i> <%= @review.created_at.to_date%>
+				</span>
+				</div>
+				</div>
+			</li>
+			<% end %>
+			</ul>
+        </div>
+      </aside>
+    </div>
+  </div>
+</div>

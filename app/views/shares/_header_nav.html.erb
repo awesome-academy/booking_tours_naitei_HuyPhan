@@ -23,8 +23,9 @@
                 <li class="my-nav-item">
                   <%= link_to "Tours", tours_path %>
                 </li>
-                <li class="my-nav-item"><%= link_to t("booking_tous"), booking_tours_path if current_user %></li>
+                <li class="my-nav-item"><%= link_to t("booking_tours"), booking_tours_path if current_user %></li>
                 <li class="my-nav-item"><%= link_to t("reviews"), reviews_path(:tab => 'reviews'), class: "smooth-menu" %></li>
+                <li class="my-nav-item"><%= link_to 'New Review', reviews_from_url_path, class: "smooth-menu" %></li>
                 <% if logged_in? %>
                   <li>
                     <a href="#">

@@ -10,9 +10,11 @@ Rails.application.routes.draw do
   get "/login", to: "sessions#new"
   post "/login", to: "sessions#create"
   delete "logout", to: "sessions#destroy"
+  get "/reviews/from_url", to: "reviews#from_url_view"
+  post "/reviews/from_url", to: "reviews#from_url"
 
   resources :users
-  resources :reviews, only: :index
+  resources :reviews
   resources :booking_tours, only: %i(index show edit update destroy)
   resources :tours, only: %i(index show) do
     resources :booking_tours, only: :create

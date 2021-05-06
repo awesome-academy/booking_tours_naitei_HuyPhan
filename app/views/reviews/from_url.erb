@@ -1,0 +1,37 @@
+<!--about-us start -->
+<section id="home" class="about-us">
+  <div class="container">
+    <div class="about-us-content">
+      <div class="row header-image">
+      </div><!--/.row-->
+    </div><!--/.about-us-content-->
+  </div><!--/.container-->
+
+</section><!--/.about-us-->
+
+<div class="container">
+  <br>
+  <div class="card border-0">
+    <div class="row">
+    	<aside class="col-sm-12">
+        <div class="row">
+      		<div id="form-new-review">
+      			<div class="col-12 col-md-12">
+              <div class="bg-info card border-primary rounded-0" style="p">
+                <h3 class="title text-uppercase">
+                </h3>
+                <!--Form with header-->
+                <%= form_for :review_params, url: reviews_from_url_path, method: :post do |f| %>
+                  <%= f.text_field :url %>
+
+                  <%= f.submit "Save", class: "btn btn-success" %>
+                <% end %>
+                <!--Form with header-->
+              </div>
+            </div>
+      		</div>
+        </div>
+    	</aside>
+    </div>
+  </div>
+</div>

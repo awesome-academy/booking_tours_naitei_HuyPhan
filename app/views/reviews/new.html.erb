@@ -13,38 +13,6 @@
   <br>
   <div class="card border-0">
     <div class="row">
-      <aside class="col-sm-4">
-        <article class="gallery-wrap">
-          <div class="img-big-wrap">
-            <div>
-              <%= check_image(@tour.image) %>
-            </div>
-          </div>
-        </article>
-      </aside>
-
-      <aside class="col-sm-8">
-        <article class="card-body m-0 pt-0 pl-5" id="tour-info">
-          <h3 class="title text-uppercase"><%= @tour.name %></h3>
-          <div class="rating info">
-            <div class="stars">
-              <%= raw display_stars_layout @tour %>
-            </div>
-          </div>
-          <div class="mb-3 mt-3 info">
-            <span class="h7 text-success">
-              Duaration: <%= t "duaration", count: @tour.duaration %></span>
-          </div>
-          <div class="mb-3 mt-3 info">
-            <span class="price-title">Price/Person:</span>
-            <span class="price color-price-waanbii"><%= number_to_currency @tour.price %></span>
-          </div>
-          <dl class="item-property info">
-            <dt>Description</dt>
-            <dd><p><%= @tour.description %></p></dd>
-          </dl>
-        </article>
-      </aside>
     	<aside class="col-sm-12">
         <div class="row">
       		<div id="form-new-review">

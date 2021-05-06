@@ -28,6 +28,7 @@ class Admin::BookingToursController < ApplicationController
     end
 
   def load_booking_tour
+    byebug
     @booking_tour = BookingTour.find_by id: params[:id]
     return if @booking_tour
 

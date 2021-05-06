@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_27_075413) do
+ActiveRecord::Schema.define(version: 2021_05_03_040308) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -110,6 +110,7 @@ ActiveRecord::Schema.define(version: 2021_03_27_075413) do
     t.integer "point"
     t.integer "status", default: 0
     t.boolean "is_active", default: false
+    t.text "title"
     t.index ["tour_id"], name: "index_reviews_on_tour_id"
     t.index ["user_id"], name: "index_reviews_on_user_id"
   end

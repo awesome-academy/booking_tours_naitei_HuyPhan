@@ -28,6 +28,7 @@ gem "faker"
 gem "bcrypt", "3.1.15"
 gem 'jquery-ui-rails'
 gem 'bootstrap-datepicker-rails'
+gem "mechanize"
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
