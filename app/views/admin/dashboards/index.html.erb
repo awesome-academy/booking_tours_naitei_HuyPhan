@@ -1,0 +1,33 @@
+<!--about-us start -->
+<section id="home" class="about-us">
+  <div class="container">
+    <div class="about-us-content">
+      <div class="row header-image">
+      </div><!--/.row-->
+    </div><!--/.about-us-content-->
+  </div><!--/.container-->
+
+</section><!--/.about-us-->
+
+<!--packages start-->
+<section id="tabs" class="project-tab">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h3 class="title"> Static chart: Booking Tours/ Month</h3>
+        <%= column_chart BookingTour.where("status <> 1").group_by_month_of_year(:created_at, format: "%b").count %>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="tabs" class="project-tab">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h3 class="title"> Static chart: Reviews/ Month(Only staticics for review is not status reject)</h3>
+        <%= column_chart Review.where("status <> 1").group_by_month_of_year(:created_at, format: "%b").count %>
+      </div>
+    </div>
+  </div>
+</section>

@@ -71,3 +71,22 @@ Review.all.each do |review|
     review.comments.create content: Faker::Lorem.sentence(word_count: 50), user_id: User.all.pluck(:id).sample
   end
 end
+
+
+## Booking tour
+(1..50).each do |i|
+  BookingTour.create(
+    start_date: '26/05/2021',
+    customer_name: "Customer #{i}",
+    customer_email: "Customer#{i}@gmail.com",
+    customer_phone: '208-070-3179',
+    tour_id:Tour.all.pluck(:id).sample,
+    user_id: User.all.pluck(:id).sample,
+    created_at: (1..12).to_a.sample.months.ago,
+    duaration: rand(1..10),
+    quantity_person: rand(1..10),
+    note: "note #{i}",
+    price: rand(100..300),
+    total_price: rand(100..1200)
+    )
+end

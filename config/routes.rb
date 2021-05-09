@@ -38,5 +38,6 @@ Rails.application.routes.draw do
         patch "public_view", to: "reviews#public_view"
       end
     end
+    get 'dashboards/index'
   end
 end

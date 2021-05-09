@@ -9,6 +9,7 @@ import toastr from 'toastr'
 import "bootstrap"
 import "bootstrap-datepicker"
 require("bootstrap-datepicker")
+import "chartkick/chart.js"
 
 toastr.options = {
   "closeButton": false,

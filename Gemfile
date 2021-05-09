@@ -32,6 +32,8 @@ gem "mechanize"
 gem 'pg_search'
 gem 'select2-rails'
 gem 'underscore-rails'
+gem "chartkick"
+gem 'groupdate'
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]

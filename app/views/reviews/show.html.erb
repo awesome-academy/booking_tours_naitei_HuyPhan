@@ -16,7 +16,7 @@
         <article class="card-body m-0 pt-0 pl-5" id="tour-info">
           <h3 class="title text-uppercase" style="text-align: left"><%= @review.title %></h3>
           <dl class="item-property info" style = "text-align: justify">
-            <dd><p><%= @review.content %></p></dd>
+            <dd><p><%= raw @review.content %></p></dd>
           </dl>
         </article>
       </aside>

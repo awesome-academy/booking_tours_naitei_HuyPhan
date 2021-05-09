@@ -29,6 +29,9 @@
 
                 <% if @current_user&.admin? %>
                   <li class="my-nav-item">
+                    <%= link_to t("dashboard"), admin_dashboards_index_path(:tab => 'dashboard'), class: "smooth-menu" %></li>
+
+                  <li class="my-nav-item">
                     <%= link_to t("reviews"), admin_reviews_path(:tab => 'reviews'), class: "smooth-menu" %></li>
                 <% else %>
                   <li class="my-nav-item">
