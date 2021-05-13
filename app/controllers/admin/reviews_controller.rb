@@ -2,7 +2,7 @@ class Admin::ReviewsController < ApplicationController
 
   before_action :load_review, except: %i(index)
   def index
-    @reviews = Review.view.sort_by_created_at.sort_by_status.paginate(page: params[:reviews], per_page: Settings.paginate.page_8)
+    @reviews = Review.view.sort_by_created_at.sort_by_status.paginate(page: params[:page], per_page: Settings.paginate.page_8)
   end
 
   def show
