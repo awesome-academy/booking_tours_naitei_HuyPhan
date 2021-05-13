@@ -1,4 +1,5 @@
 class ReviewsController < ApplicationController
+  before_action :force_json, only: :search  
   before_action :logged_in_user
   before_action :load_tour, only: %i(new create)
   before_action :load_review, only: %i(edit update destroy)
@@ -22,8 +23,14 @@ class ReviewsController < ApplicationController
     @reviews = Review.view.sort_by_created_at.paginate(page: params[:reviews], per_page: Settings.paginate.page_8)
     @tours = Tour.all# @reviews_of_tour = @tour.reviews.view.paginate(page: params[:reviews], per_page: Settings.paginate.page_8)
     @my_reviews = current_user.reviews.sort_by_created_at.paginate(page: params[:my_reviews], per_page: Settings.paginate.page_6)
-    # @review = Review.search_by_full_name(params[:term]).with_pg_search_highlight
+    @tours = Tour.search_by_name(params[:name])
+      .sort_by_name
+      .paginate(page: params[:page], per_page: Settings.paginate.page_6)
+    @reviews = Review.search_by_created_at(params[:created_at])
+      .search_by_content(params[:content])
+
   end
+
 
 
   def from_url_view
@@ -76,6 +83,12 @@ class ReviewsController < ApplicationController
     redirect_to reviews_path(:tab => 'my_reviews')
   end
 
+  # def search
+  #   q = params[:q].downcase
+  #   @review = Review.where("user_name ILIKE ? or content ILIKE ? or created_at ILIKE ?", "%#{q}%", "%#{q}%", "%#{q}%" ).limit(5)
+  # end
+  
+
   private
 
   def review_params
@@ -105,6 +118,11 @@ class ReviewsController < ApplicationController
     flash[:error] = "Da co loi xay ra, vui long load lai trang"
     redirect_to reviews_path(reviews: 1)
   end
+
+  def force_json
+    request.format = :json
+  end
+
 end
 
 

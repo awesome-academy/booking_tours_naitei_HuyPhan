@@ -3,6 +3,8 @@ require("jquery-ui")
 require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
+require("easy-autocomplete")
+import "packs/review"
 
 require("channels")
 import toastr from 'toastr'
