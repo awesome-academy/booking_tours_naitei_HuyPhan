@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   delete "logout", to: "sessions#destroy"
   get "/reviews/from_url", to: "reviews#from_url_view"
   post "/reviews/from_url", to: "reviews#from_url"
+  
 
   resources :users
   resources :reviews

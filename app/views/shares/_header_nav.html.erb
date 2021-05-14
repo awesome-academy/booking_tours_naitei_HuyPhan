@@ -25,12 +25,12 @@
                 </li>
                 <li class="my-nav-item">
                   <%= link_to t("booking_tours"), booking_tours_path if current_user && !current_user.admin? %></li>
-                  <%= link_to t("booking_tours"), booking_tours_path if current_user&.admin? %></li>
 
                 <% if @current_user&.admin? %>
                   <li class="my-nav-item">
                     <%= link_to t("dashboard"), admin_dashboards_index_path(:tab => 'dashboard'), class: "smooth-menu" %></li>
-
+                  <li class="my-nav-item">
+                    <%= link_to t("booking_tours"), booking_tours_path(:tab => 'booking_tours'), class: "smooth-menu" %></li>
                   <li class="my-nav-item">
                     <%= link_to t("reviews"), admin_reviews_path(:tab => 'reviews'), class: "smooth-menu" %></li>
                 <% else %>

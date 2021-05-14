@@ -2,12 +2,12 @@
   <td><%= index + 1 %></td>
   <td><%= review.user.name %></td>
   <td><%= link_to review.tour.name, tour_path(id: review.tour.id) %></td>
-  <td><%= review.content[0..50] << (review.content.length > 50 ? " ..." : "") %></td>
+  <td><%= raw review.content[0..50] << (review.content.length > 50 ? " ..." : "") %></td>
   <td><%= review.point %></td>
   <td><%= review.status %></td>
   <td><%= l review.created_at %></td>
   <td>
-    <%= link_to "#", title: "Show this review" do %>
+    <%= link_to review_path(id: review.id), title: "Show this review" do %> 
       <i class="text-primary fa fa-eye" aria-hidden="true"></i>
     <% end %>
 
@@ -21,3 +21,5 @@
 
   </td>
 </tr>
+
+
