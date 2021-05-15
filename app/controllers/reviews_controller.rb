@@ -20,14 +20,16 @@ class ReviewsController < ApplicationController
 
   def index
     @reviews = Review.view.sort_by_created_at.paginate(page: params[:reviews], per_page: Settings.paginate.page_8)
-    @tours = Tour.all# @reviews_of_tour = @tour.reviews.view.paginate(page: params[:reviews], per_page: Settings.paginate.page_8)
+    @tours = Tour.all
     @my_reviews = current_user.reviews.sort_by_created_at.paginate(page: params[:my_reviews], per_page: Settings.paginate.page_6)
-    # @tours = Tour.search_by_name(params[:name])
-    #   .sort_by_name
-    #   .paginate(page: params[:page], per_page: Settings.paginate.page_6)
-    # @reviews = Review.search_by_created_at(params[:created_at])
-    #   .search_by_content(params[:content])
+    
+    @review = if params[:review_params].nil?
+        Array.new
+      else
+        Review.search params[:review_params]
+      end
   end
+
 
 
 

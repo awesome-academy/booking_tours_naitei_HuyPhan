@@ -1,4 +1,31 @@
 class Review < ApplicationRecord
+  include Elasticsearch::Model
+  include Elasticsearch::Model::Callbacks
+  
+  class << self
+    def search query
+      __elasticsearch__.search(
+        {
+          query: {
+            multi_match: {
+              query: query,
+              fields: ['name', 'content', 'date']
+            }
+          },
+          highlight: {
+            pre_tags: ['<span class="highlight">'],
+            post_tags: ['</span>'],
+            fields: {
+              name: {},
+              content: {},
+              date: {}
+            }
+          }
+        }
+      )
+    end
+  end
+
   belongs_to :user
   belongs_to :tour
   has_many :comments
@@ -7,7 +34,5 @@ class Review < ApplicationRecord
 
   scope :sort_by_created_at, -> {order created_at: :desc}
   scope :sort_by_status, -> {order :status}
-  # scope :search_by_created_at, ->created_at{where created_at: created_at if created_at.present?}
-  # scope :search_by_content, ->content{where("content like ?",  "%#{content}%") if content.present? }
-
+  
 end

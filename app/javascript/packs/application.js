@@ -5,6 +5,7 @@ require("turbolinks").start()
 require("@rails/activestorage").start()
 require("easy-autocomplete")
 
+
 require("channels")
 import toastr from 'toastr'
 import "bootstrap"

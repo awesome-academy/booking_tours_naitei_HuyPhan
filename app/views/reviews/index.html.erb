@@ -53,6 +53,32 @@
   </div>
 </section>
 
+</section>
+    <% if @reviews %>
+  <ul class="search_results">
+    <% @reviews.each do |review| %>
+      <li>
+        <h3>
+          <%= link_to review.try(:highlight).try(:name) ?
+            review.highlight.title[0].html_safe : review.tour.name, "#" %>
+        </h3>
+        <% if review.try(:highlight).try(:content) %>
+          <% review.highlight.content.each do |snippet| %>
+            <p><%= snippet.html_safe %>...</p>
+          <% end %>
+        <h3>
+          <%= link_to review.try(:highlight).try(:date) ?
+            review.highlight.title[0].html_safe : review.date, "#" %>
+        </h3>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>Your search did not match any documents.</p>
+<% end %>
+</section>
+
 <style type="text/css">
 .project-tab {
   margin-top: 20px;
@@ -96,4 +122,5 @@
 .tab-content {
   margin-top: 20px;
 }
+
 </style>
