@@ -34,6 +34,8 @@ gem 'select2-rails'
 gem 'underscore-rails'
 gem "chartkick"
 gem 'groupdate'
+gem 'toastr-rails'
+
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
