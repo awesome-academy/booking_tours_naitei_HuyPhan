@@ -15,7 +15,7 @@
               <div class="row">
                 <div class="col-lg-4 col-md-4 col-sm-4">
                   <div class="single-tab-select-box">
-                    <h2>Tour Name</h2>
+                    <h2>Tên tour</h2>
                     <div class="travel-icon">
                       <%= f.text_field :name, value:(params[:name] || ""), autofocus: true, class: "form-control", style: "height: 40px;" %>
                     </div><!-- /.travel-select-icon -->
@@ -24,7 +24,7 @@
 
                 <div class="col-lg-4 col-md-1 col-sm-4">
                   <div class="single-tab-select-box">
-                    <h2>Duration</h2>
+                    <h2>Thời hạn</h2>
                     <div class="travel-icon">
                       <%= f.number_field :duaration, class: "form-control", step: 1,
                       min: 1, value: params[:duaration] || "", style: "height: 40px;" %>
@@ -38,7 +38,7 @@
                     <div class="about-btn">
                       <%= f.button class: "about-view travel-btn", style: "line-height: 40px;" do %>
                         <i class="fa fa-search" aria-hidden="true"  style=" padding-right: 11px; font-size: 20px;"></i>
-                        search
+                       Tìm kiếm
                       <% end %><!-- /.select-->
                     </div><!-- /.travel-select-icon -->
                   </div><!--/.single-tab-select-box-->

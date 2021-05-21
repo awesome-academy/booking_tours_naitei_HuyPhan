@@ -16,7 +16,7 @@ class ToursController < ApplicationController
     @tour = Tour.find_by id: params[:id]
     return if @tour
 
-    flash[:error] = "Da co loi xay ra, vui long load lai page"
+    flash[:error] = "Đã có lỗi xảy ra, vui lòng tải lại trang"
     redirect_to tours_path
   end
 

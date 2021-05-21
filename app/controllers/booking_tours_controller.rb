@@ -10,10 +10,10 @@ class BookingToursController < ApplicationController
 
   def destroy
     @booking_tour.cancel!
-    flash[:success] = "Da thuc hien cancel thanh cong"
+    flash[:success] = "Đã thực hiện hủy bỏ thành công"
 
   rescue
-    flash[:error] = "Da co loi xay ra, vui long load lai page"
+    flash[:error] = "Đã có lỗi xảy ra vui long tải lại trang"
   ensure
     respond_to do |format|
       format.js
@@ -27,10 +27,10 @@ class BookingToursController < ApplicationController
     @booking_tour.total_price = @tour.price * @booking_tour.quantity_person
 
     if @booking_tour.save
-      flash[:success] = "Dang ky tour thanh cong"
+      flash[:success] = "Đăng ký tour thành công"
       redirect_to booking_tours_path
     else
-      flash[:warning] = "Da co loi xay ra khi thuc hien dang ky, vui long load page"
+      flash[:warning] = "Đã có lỗi xảy ra khi thực hiện đăng kí, vui lòng tải lại trang"
       render "tours/show"
     end
   end
@@ -47,7 +47,7 @@ class BookingToursController < ApplicationController
     @tour = Tour.find_by id: params[:tour_id]
     return if @tour
 
-    flash[:warning] = "Da co loi xay ra, vui long load lai page"
+    flash[:warning] = "Đã có lỗi xảy ra, vui lòng tải lại trang"
     redirect_to tours_path
   end
 
@@ -55,7 +55,7 @@ class BookingToursController < ApplicationController
     @booking_tour = BookingTour.find_by id: params[:id]
     return if @booking_tour
 
-    flash[:error] = "Da co loi xay ra, vui long load lai trang"
+    flash[:error] = "Đã có lỗi xảy ra, vui lòng tải lại trang"
     redirect_to booking_tours_path
   end
 

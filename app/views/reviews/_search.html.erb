@@ -3,7 +3,7 @@
 <div class="row bg-info card border-primary">   
    <div class="col-lg-3 col-md-3 col-sm-4">
     <div class="single-tab-select-box">
-      <h2>Tour name</h2>
+      <h2>Tên tour</h2>
       <div class="travel-select-icon">
         <select name="tour_id", class="form-control">
           <option value="">Tất cả</option>
@@ -17,14 +17,14 @@
 
   <div class="col-lg-3 col-md-3 col-sm-4">
     <div class="single-tab-select-box">
-      <h2>Text<h2> <%= text_field_tag :content, !params[:content].nil? ? params[:content] : "", class: "form-control", style: "height: 40px" %>
+      <h2>Văn bản<h2> <%= text_field_tag :content, !params[:content].nil? ? params[:content] : "", class: "form-control", style: "height: 40px" %>
    </div><!--/.single-tab-select-box-->
   </div><!--/.col-->
 
 
   <div class="col-lg-3 col-md-3 col-sm-4">
     <div class="single-tab-select-box">
-      <h2>Created at</h2> 
+      <h2>Ngày tạo</h2> 
       <div class="travel-check-icon">
         <input type="text" name="created_at" class="form-control" data-toggle="datepicker" placeholder="<%= Date.today.strftime("%d-%m-%Y") %>" value="<%= !params[:created_at].nil? ? params[:created_at] : "" %>">
       </div><!-- /.travel-select-icon -->
@@ -33,7 +33,7 @@
 
   <div class="col-lg-3 col-md-3 col-sm-4">
     <div class="about-btn">
-          <%= submit_tag "Search", class: "about-view travel-btn" %> 
+          <%= submit_tag "Tìm kiếm ", class: "about-view travel-btn" %> 
     </div><!--/.about-btn-->
   </div>
 </div><!--/.row-->

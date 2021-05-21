@@ -10,9 +10,9 @@ class ReviewsController < ApplicationController
   def create
     @review = @tour.reviews.new review_params
     if @review.save
-      flash[:info] = "Tao review thanh cong"
+      flash[:info] = "Tạo review thành công"
     else
-      flash[:error] = "Da co loi, tao review that bai"
+      flash[:error] = "Đã có lỗi, tạo review thất bại"
     end
 
     redirect_to tours_path
@@ -23,22 +23,23 @@ class ReviewsController < ApplicationController
     @my_reviews = current_user.reviews.sort_by_created_at.paginate(page: params[:my_reviews], per_page: Settings.paginate.page_6)
     
     if params
-      @reviews = Review
+      @reviews = Review.view
       if params[:content]
         @reviews = @reviews.search_by_key(params[:content])
       end
       if params[:tour_id]
         @reviews = @reviews.search_by_tour_id(params[:tour_id])
       end
-      if !params[:created_at].nil? && !params[:created_at].empty?
+      if params[:created_at].present?
         @reviews = @reviews.search_by_created_at(Date.parse(params[:created_at]))
       end
       @reviews = @reviews.paginate(page: params[:reviews], per_page: Settings.paginate.page_8)
     else
-      flash[:error] = "Nội dung tìm kiếm không tồn tại"
       @reviews = Review.view.sort_by_created_at.paginate(page: params[:reviews], per_page: Settings.paginate.page_8)
     end
+      flash.now[:error] = "Nội dung tìm kiếm không tồn tại" unless @reviews.any?
   end
+
 
 
   def from_url_view
@@ -69,12 +70,14 @@ class ReviewsController < ApplicationController
   
   end
 
-  def edit; end
+  def edit
+    @tour = Tour.find_by id: @review.tour_id
+  end
 
   def update
     if @review.update(review_params)   
       redirect_to reviews_path(tab: 'my_reviews')
-      flash[:success] = "Review Updated!"   
+      flash[:success] = "Bài review đã được cập nhật "   
     else  
       render action: :edit   
     end   
@@ -103,7 +106,7 @@ class ReviewsController < ApplicationController
     @tour = Tour.find_by id: params[:tour_id]
     return if @tour
 
-    flash[:warning] = "Da co loi xay ra, vui long load lai page"
+    flash[:warning] = "Đã có lỗi xảy ra vui lòng tải lại trang "
     redirect_to tours_path
   end
 
@@ -117,7 +120,7 @@ class ReviewsController < ApplicationController
     @review = @current_user.reviews.find_by id: params[:id]
     return if @review
 
-    flash[:error] = "Da co loi xay ra, vui long load lai trang"
+    flash[:error] = "Đã có lỗi xảy ra vui lòng tải lại trang "
     redirect_to reviews_path(reviews: 1)
   end
 

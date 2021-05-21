@@ -10,13 +10,13 @@ class Admin::ReviewsController < ApplicationController
 
   def rejected
     @review.rejected!
-    flash[:success] = "Da update thanh cong"
+    flash[:success] = "Đã thực hiện cập nhật thành công"
     redirect_to admin_reviews_path
   end
 
   def public_view
     @review.view!
-    flash[:success] = "Da update thanh cong"
+    flash[:success] = "Đã thực hiện cập nhật thành công"
     redirect_to admin_reviews_path
   end
 
@@ -26,7 +26,7 @@ class Admin::ReviewsController < ApplicationController
     @review = Review.find_by id: params[:id]
     return if @review
 
-    flash[:error] = "Da co loi xay ra, vui long load lai page"
+    flash[:error] = "Đã có lỗi xảy ra, vui long tải lại trang"
     redirect_to admin_reviews_path
   end
 end
