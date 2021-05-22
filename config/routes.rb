@@ -12,7 +12,6 @@ Rails.application.routes.draw do
   get "/reviews/from_url", to: "reviews#from_url_view"
   post "/reviews/from_url", to: "reviews#from_url"
   
-
   resources :users
   resources :reviews
   resources :booking_tours, only: %i(index show edit update destroy)

@@ -19,16 +19,26 @@ class ReviewsController < ApplicationController
   end
 
   def index
-    @reviews = Review.view.sort_by_created_at.paginate(page: params[:reviews], per_page: Settings.paginate.page_8)
-    @tours = Tour.all# @reviews_of_tour = @tour.reviews.view.paginate(page: params[:reviews], per_page: Settings.paginate.page_8)
+    @tours = Tour.all
     @my_reviews = current_user.reviews.sort_by_created_at.paginate(page: params[:my_reviews], per_page: Settings.paginate.page_6)
-    # @tours = Tour.search_by_name(params[:name])
-    #   .sort_by_name
-    #   .paginate(page: params[:page], per_page: Settings.paginate.page_6)
-    # @reviews = Review.search_by_created_at(params[:created_at])
-    #   .search_by_content(params[:content])
+    
+    if params
+      @reviews = Review
+      if params[:content]
+        @reviews = @reviews.search_by_key(params[:content])
+      end
+      if params[:tour_id]
+        @reviews = @reviews.search_by_tour_id(params[:tour_id])
+      end
+      if !params[:created_at].nil? && !params[:created_at].empty?
+        @reviews = @reviews.search_by_created_at(Date.parse(params[:created_at]))
+      end
+      @reviews = @reviews.paginate(page: params[:reviews], per_page: Settings.paginate.page_8)
+    else
+      flash[:error] = "Nội dung tìm kiếm không tồn tại"
+      @reviews = Review.view.sort_by_created_at.paginate(page: params[:reviews], per_page: Settings.paginate.page_8)
+    end
   end
-
 
 
   def from_url_view
