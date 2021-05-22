@@ -4,12 +4,13 @@
       <h1>Login to Your Account</h1><br>
 
       <%= form_for :sessions, url: login_path do |f| %>
-        <div class="field">
-          <%= f.text_field :email, autofocus: true, autocomplete: "email", placeholder: "emai" %>
+
+        <div class="field" >
+          <%= f.text_field :email, autofocus: true, autocomplete: "email", placeholder: "Email", style:"font-size: 16px" %>
         </div>
 
-        <div class="field">
-          <%= f.password_field :password, autocomplete: "current-password", placeholder: "password" %>
+        <div class="field" style="font-size: 16px">
+          <%= f.password_field :password, autocomplete: "current-password", placeholder: "Password", style:"font-size: 16px"%>
         </div>
 
         <div class="field" style="display: flex">

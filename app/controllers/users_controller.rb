@@ -15,6 +15,17 @@
 
   def show; end
 
+  def update
+    if @user.update user_params
+      flash[:success] = "Cập nhật thông tin khách hàng thành công"
+    else
+      flash[:danger] = "Cập nhật thông tin khách hàng thất bại"
+    end
+    @user.avatar.attach params[:user][:image] if params[:user][:image]
+    redirect_to @user
+  end
+
+
   def new
     @user = User.new
   end
@@ -23,7 +34,7 @@
 
   def user_params
     params.require(:user)
-          .permit :name, :email, :password, :password_confirmation, :phone, :address
+          .permit :name, :email, :password, :password_confirmation, :phone, :address, :avatar
   end
 
   def load_user
