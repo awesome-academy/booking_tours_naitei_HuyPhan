@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <style type="text/css">
+        p {
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+<p>Chào mừng <%= @user.name %>,</p>
+<p><br></p>
+<p>Bạn đã đăng ký tài khoản thành công tại Booking Tour.</p>
+<p>Để kích hoạt tài khoản, vui lòng nhấn vào đường link dưới đây:</p>
+<br>
+<p><%= link_to "Xác thực", confirm_mail_address_url(token: @user.confirm_token) %></p>
+<br>
+<p>Một lần nữa, cảm ơn bạn vì đã tham gia cùng chúng tôi.</p>
+<br>
+<p>Thân mến,&nbsp;&nbsp;</p>
+<br>
+<p>------------</p>
+<p>Thanks &amp; Best regard!</p>
+<p>Booking Tour</p>
+</body>
+
+</html>

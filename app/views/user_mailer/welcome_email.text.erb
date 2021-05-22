@@ -1,0 +1,6 @@
+Chào mừng <%= @user.name %>,
+===============================================
+Bạn đã đăng ký tài khoản thành công tại Booking Tour.
+Để kích hoạt tài khoản, vui lòng nhấn vào đường link dưới đây:
+<%= link_to "Xác thực", confirm_mail_address_url(token: @user.confirm_token) %>
+Một lần nữa, cảm ơn bạn vì đã tham gia cùng chúng tôi.
