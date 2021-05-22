@@ -52,8 +52,9 @@
    				 </h3>
     			<!--Form with header-->
    			 <%= form_for @review, url:review_path(id: @review.id), method: :patch do |f| %>
-      		 <%= f.text_area :content, class: "ckeditor", id: "edit_review" %>
-
+      		<%= f.text_field :title,class: "mt-10 mb-10"%>
+          <%= f.number_field :point, min:1, max:5,class: "mt-10 mb-10"%>
+          <%= f.text_area :content, class: "ckeditor", id: "edit_review" %>
       		<%= f.submit "Lưu thay đổi", class: "btn btn-success mt-10" %>
     	<% end %>
     <!--Form with header-->

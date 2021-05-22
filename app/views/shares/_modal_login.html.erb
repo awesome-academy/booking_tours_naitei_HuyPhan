@@ -12,17 +12,17 @@
           <%= f.password_field :password, autocomplete: "current-password", placeholder: "password" %>
         </div>
 
-        <div class="field">
-          <%= f.check_box :remember_me, class: "checkbox" %>
-          <%= f.label :remember_me %>
+        <div class="field" style="display: flex">
+          <%= f.check_box :remember_me, class: "checkbox", style:"margin: 3px 0"%>
+          <%= f.label :remember_me , style:" margin-left: 5px"%>
         </div>
 
         <div class="actions login">
-          <%= f.submit "Log in", class: "book-btn" %>
+          <%= f.submit "Đăng nhập", class: "book-btn" %>
         </div>
       <% end %>
       <div class="login-help">
-        <%= link_to "Register", signup_path %>
+        <%= link_to "Đăng kí tài khoản", signup_path %>
       </div>
     </div>
   </div>
