@@ -1,4 +1,5 @@
-class UsersController < ApplicationController
+  class UsersController < ApplicationController
+  skip_before_action :verify_authenticity_token, :only => :create
   before_action :logged_in_user, only: %i(index edit update destroy)
   before_action :load_user, except: %i(new create)
 
@@ -6,7 +7,7 @@ class UsersController < ApplicationController
     @user = User.new user_params
     if @user.save
       log_in @user
-      redirect_back_or @user
+      redirect_back_or root_url
     else
       render :new
     end
@@ -22,7 +23,7 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user)
-          .permit :name, :email, :password, :password_confirmation
+          .permit :name, :email, :password, :password_confirmation, :phone, :address
   end
 
   def load_user

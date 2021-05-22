@@ -1,14 +1,15 @@
 <div class="col-12 col-md-12">
   <div class="bg-info card border-primary rounded-0" style="p">
-    <h3 class="title text-uppercase">
-      Chỉnh sửa bài đánh giá của bạn
+    <h3 class="title mb-10">
+      Tạo bài đánh giá của bạn
     </h3>
     <!--Form with header-->
     <%= form_for @review, url: tour_reviews_path(tour_id: @tour.id), method: :post do |f| %>
-      <%= f.number_field :point %>
+      <%= f.text_field :title,class: "mt-10 mb-10"%>
+      <%= f.number_field :point, min:1, max:5,class: "mt-10 mb-10"%>
       <%= f.text_area :content, rows: 5, data: {provide: "markdown"}, class: "ckeditor" %>
 
-      <%= f.submit "Save", class: "btn btn-success" %>
+      <%= f.submit "Lưu bài đánh giá", class: "btn btn-success mt-10" %>
     <% end %>
     <!--Form with header-->
   </div>
