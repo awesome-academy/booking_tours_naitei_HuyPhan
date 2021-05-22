@@ -1,0 +1,503 @@
+.now-navigation-profile {
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow: 0 0 3px #464646;
+  width: 280px;
+  margin-top: 35px;
+  padding: 5px 16px 10px;
+}
+
+.now-navigation-profile .header-profile {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.now-navigation-profile .avatar-circle {
+  display: block;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #eaeaea;
+}
+
+.now-navigation-profile a {
+  color: #464646;
+}
+
+/* line 828, app/assets/stylesheets/custom.scss */
+.now-navigation-profile a.active {
+  cursor: default;
+}
+
+/* line 832, app/assets/stylesheets/custom.scss */
+.now-navigation-profile .item-navigation, .now-navigation-profile .sub-item-navigation {
+  cursor: pointer;
+  font-size: 13px;
+  text-transform: none;
+  color: #464646;
+  border-bottom: 1px solid #eaeaea;
+  display: block;
+  padding: 10px 0;
+  position: relative;
+}
+
+/* line 842, app/assets/stylesheets/custom.scss */
+.now-navigation-profile .item-navigation .far, .now-navigation-profile .item-navigation .fas, .now-navigation-profile .sub-item-navigation .far, .now-navigation-profile .sub-item-navigation .fas {
+  font-size: 16px;
+  width: 20px;
+  text-align: center;
+}
+
+/* line 848, app/assets/stylesheets/custom.scss */
+.now-navigation-profile .item-navigation .nav-icon-arrow-thin, .now-navigation-profile .item-navigation .sub-nav-icon-arrow-thin, .now-navigation-profile .sub-item-navigation .nav-icon-arrow-thin, .now-navigation-profile .sub-item-navigation .sub-nav-icon-arrow-thin {
+  border: solid #252525;
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  padding: 3px;
+}
+
+/* line 855, app/assets/stylesheets/custom.scss */
+.now-navigation-profile .item-navigation .nav-icon-arrow-thin.right, .now-navigation-profile .item-navigation .sub-nav-icon-arrow-thin.right, .now-navigation-profile .sub-item-navigation .nav-icon-arrow-thin.right, .now-navigation-profile .sub-item-navigation .sub-nav-icon-arrow-thin.right {
+  transform: rotate(-45deg);
+}
+
+/* line 859, app/assets/stylesheets/custom.scss */
+.now-navigation-profile .item-navigation .nav-icon-arrow-thin.down, .now-navigation-profile .sub-item-navigation .nav-icon-arrow-thin.down {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+
+/* line 864, app/assets/stylesheets/custom.scss */
+.now-navigation-profile .item-navigation .nav-icon-arrow-thin, .now-navigation-profile .item-navigation .sub-nav-icon-arrow-thin, .now-navigation-profile .sub-item-navigation .nav-icon-arrow-thin, .now-navigation-profile .sub-item-navigation .sub-nav-icon-arrow-thin {
+  border-width: 0 1px 1px 0;
+  margin-right: 5px;
+}
+
+/* line 869, app/assets/stylesheets/custom.scss */
+.now-navigation-profile .item-navigation .col, .now-navigation-profile .sub-item-navigation .col {
+  padding-left: 0;
+}
+
+/* line 872, app/assets/stylesheets/custom.scss */
+.now-navigation-profile .item-navigation .col:hover, .now-navigation-profile .sub-item-navigation .col:hover {
+  color: #cf2127;
+}
+
+/* line 877, app/assets/stylesheets/custom.scss */
+.now-navigation-profile .item-navigation:last-child .sub-item-navigation:last-child {
+  border: 0;
+}
+
+/* line 881, app/assets/stylesheets/custom.scss */
+.now-navigation-profile .item-navigation:last-child:after, .now-navigation-profile .sub-item-navigation:last-child:after {
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background-color: #fff;
+}
+
+/* line 891, app/assets/stylesheets/custom.scss */
+.now-navigation-profile .sub-navigation {
+  border-top: 1px solid #eaeaea;
+  margin-top: 10px;
+  margin-left: 30px;
+  margin-bottom: -10px;
+  display: none;
+}
+
+/* line 898, app/assets/stylesheets/custom.scss */
+.now-navigation-profile .sub-navigation .sub-item-navigation:last-child:after {
+  width: 0;
+}
+
+/* line 903, app/assets/stylesheets/custom.scss */
+.now-navigation-profile .show {
+  display: block;
+}
+
+/* line 907, app/assets/stylesheets/custom.scss */
+.now-navigation-profile a.item-navigation:hover .nav-icon-arrow-thin,
+.now-navigation-profile .item-navigation.active .nav-icon-arrow-thin,
+.now-navigation-profile .item-navigation :hover .nav-icon-arrow-thin,
+.now-navigation-profile .sub-navigation .sub-item-navigation:hover
+.sub-nav-icon-arrow-thin,
+.now-navigation-profile .sub-navigation .sub-item-navigation:hover .fas,
+.now-navigation-profile .sub-navigation .sub-item-navigation.active .sub-nav-icon-arrow-thin {
+  color: #cf2127;
+  border-color: #cf2127;
+}
+
+/* line 921, app/assets/stylesheets/custom.scss */
+.now-navigation-profile .item-navigation.active, .now-navigation-profile .item-navigation:hover {
+  color: #cf2127;
+}
+
+/* line 928, app/assets/stylesheets/custom.scss */
+.now-navigation-profile .sub-navigation .sub-item-navigation.active .col, .now-navigation-profile .sub-navigation .sub-item-navigation.active .fas {
+  color: #cf2127;
+}
+
+/* line 933, app/assets/stylesheets/custom.scss */
+.create-restaurant, .create-dish, .create-combo {
+  text-align: center;
+  padding: 20px;
+}
+
+/* line 936, app/assets/stylesheets/custom.scss */
+.create-restaurant .new-res-btn, .create-dish .new-res-btn, .create-combo .new-res-btn {
+  color: #fff;
+  background-color: #5cb85c;
+  border-color: #4cae4c;
+  font-size: 16px;
+}
+
+/* line 942, app/assets/stylesheets/custom.scss */
+.create-restaurant .new-res-btn:hover, .create-dish .new-res-btn:hover, .create-combo .new-res-btn:hover {
+  background-color: #4cae4c;
+}
+
+/* line 948, app/assets/stylesheets/custom.scss */
+.create-dish, .create-combo {
+  display: inline;
+  float: right;
+  padding: 0;
+}
+
+/* line 954, app/assets/stylesheets/custom.scss */
+.create-res-btn {
+  color: #fff;
+  background-color: #5cb85c;
+  border-color: #4cae4c;
+  float: right;
+}
+
+/* line 959, app/assets/stylesheets/custom.scss */
+.create-res-btn:hover {
+  background-color: #4cae4c;
+}
+
+/* line 964, app/assets/stylesheets/custom.scss */
+.now-detail-profile {
+  margin: auto;
+  width: 870px;
+  min-height: 428px;
+  position: relative;
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow: 0 0 3px 0 #464646;
+  margin-top: 35px;
+}
+
+/* line 974, app/assets/stylesheets/custom.scss */
+.now-detail-profile .header-user-profile {
+  font-size: 20px;
+  color: #080808;
+  padding: 16px 15px;
+  border-bottom: 1px solid #eaeaea;
+  position: relative;
+  background: #eaeaea;
+}
+
+.now-detail-profile .row {
+  display: flex;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.now-detail-profile .input-group {
+  display: block;
+}
+
+.now-detail-profile .form-control {
+  width: 100%!important;
+}
+
+.now-detail-profile [hidden] {
+  display: none!important;
+}
+/* line 984, app/assets/stylesheets/custom.scss */
+.now-detail-profile .user-profile-update {
+  padding: 0 30px 20px 30px;
+  position: relative;
+}
+
+/* line 988, app/assets/stylesheets/custom.scss */
+.now-detail-profile .user-profile-update .title-user {
+  font-size: 20px;
+  color: #4073a7;
+  padding-bottom: 20px;
+  position: relative;
+}
+
+/* line 996, app/assets/stylesheets/custom.scss */
+.now-detail-profile .user-profile-update .user-avatar-image img {
+  width: 115px;
+  height: 115px;
+  border-radius: 50%;
+}
+
+/* line 1002, app/assets/stylesheets/custom.scss */
+.now-detail-profile .user-profile-update .restaurant-avatar-image img {
+  width: 480px;
+  height: 300px;
+}
+
+/* line 1007, app/assets/stylesheets/custom.scss */
+.now-detail-profile .user-profile-update .upload-res-avt .col-4 {
+  height: 70px;
+  top: 230px;
+  text-align: center;
+}
+
+/* line 1013, app/assets/stylesheets/custom.scss */
+.now-detail-profile .user-profile-update .custom-file-image {
+  display: inline-block;
+  margin-left: 3px;
+}
+
+/* line 1019, app/assets/stylesheets/custom.scss */
+.now-detail-profile .user-profile-update .label-custom {
+  color: #000;
+  font-size: 14px;
+  cursor: pointer;
+  background-color: #eaeaea;
+  text-transform: capitalize;
+  padding: 3px 18px 4px;
+  border-radius: 3px;
+  margin-bottom: 0;
+  margin-right: 10px;
+}
+
+/* line 1032, app/assets/stylesheets/custom.scss */
+.now-detail-profile .user-profile-update:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 30px;
+  right: 30px;
+  height: 1px;
+  background-color: #eaeaea;
+}
+
+/* line 1042, app/assets/stylesheets/custom.scss */
+.now-detail-profile .dishes-table-col1 {
+  width: 5%;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+}
+
+/* line 1048, app/assets/stylesheets/custom.scss */
+.now-detail-profile .dishes-table-col2 {
+  width: 20%;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+}
+
+/* line 1054, app/assets/stylesheets/custom.scss */
+.now-detail-profile .dishes-table-col3 {
+  width: 10%;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+}
+
+/* line 1059, app/assets/stylesheets/custom.scss */
+.now-detail-profile .dishes-table-col3 img {
+  width: 50px;
+  height: 50px;
+}
+
+/* line 1065, app/assets/stylesheets/custom.scss */
+.now-detail-profile .dishes-table-col4 {
+  width: 15%;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+}
+
+/* line 1071, app/assets/stylesheets/custom.scss */
+.now-detail-profile .dishes-table-col5 {
+  width: 30%;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+}
+
+/* line 1077, app/assets/stylesheets/custom.scss */
+.now-detail-profile .dishes-table-col6 {
+  width: 10%;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+}
+
+/* line 1083, app/assets/stylesheets/custom.scss */
+.now-detail-profile .dishes-table-col7 {
+  width: 10%;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+}
+
+/* line 1089, app/assets/stylesheets/custom.scss */
+.now-detail-profile .delete-dish {
+  color: #cf2127;
+}
+
+/* line 1093, app/assets/stylesheets/custom.scss */
+.now-detail-profile .delete-dish:hover {
+  color: #e3121d;
+  text-decoration: none;
+}
+
+/* line 1098, app/assets/stylesheets/custom.scss */
+.now-detail-profile .edit-dish-btn {
+  color: #0288d1;
+  background-color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+/* line 1105, app/assets/stylesheets/custom.scss */
+.now-detail-profile .edit-dish-btn:hover {
+  color: #187caa;
+}
+
+/* line 1110, app/assets/stylesheets/custom.scss */
+.dishes-table {
+  font-size: 15px;
+  margin: 30px 13px 20px;
+  text-align: center;
+}
+
+/* line 1116, app/assets/stylesheets/custom.scss */
+.dishes-table-row {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-flow: row wrap;
+  flex-flow: row wrap;
+  border-bottom: 1px solid #eaeaea;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+/* line 1126, app/assets/stylesheets/custom.scss */
+.dishes-table-row:last-child {
+  border-bottom: none;
+}
+
+/* line 1130, app/assets/stylesheets/custom.scss */
+.dishes-table-heading {
+  color: #0288d1;
+}
+
+/* line 1134, app/assets/stylesheets/custom.scss */
+.dishes-table-cell {
+  -ms-flex: 1 1;
+  flex: 1 1;
+  min-height: 0;
+  min-width: 0;
+  width: auto;
+  position: relative;
+  padding: 8px 5px;
+}
+
+/* line 1144, app/assets/stylesheets/custom.scss */
+#load_dish_image, #load_combo_image {
+  width: 120px;
+  height: 120px;
+}
+
+/* line 1149, app/assets/stylesheets/custom.scss */
+.align-items-center {
+  -ms-flex-align: center !important;
+  align-items: center !important;
+}
+
+/* line 1154, app/assets/stylesheets/custom.scss */
+.col-2 {
+  -ms-flex: 0 0 16.66667%;
+  flex: 0 0 16.66667%;
+  max-width: 16.66667%;
+}
+
+/* line 1160, app/assets/stylesheets/custom.scss */
+.col-3 {
+  -ms-flex: 0 0 25%;
+  flex: 0 0 25%;
+  max-width: 25%;
+}
+
+/* line 1166, app/assets/stylesheets/custom.scss */
+.col-4 {
+  -ms-flex: 0 0 33.33333%;
+  flex: 0 0 33.33333%;
+  max-width: 33.33333%;
+}
+
+/* line 1172, app/assets/stylesheets/custom.scss */
+.col-8 {
+  -ms-flex: 0 0 66.66667%;
+  flex: 0 0 66.66667%;
+  max-width: 66.66667%;
+}
+
+/* line 1178, app/assets/stylesheets/custom.scss */
+.col-9 {
+  -ms-flex: 0 0 75%;
+  flex: 0 0 75%;
+  max-width: 75%;
+}
+
+/* line 1184, app/assets/stylesheets/custom.scss */
+.col-10 {
+  -ms-flex: 0 0 83.33333%;
+  flex: 0 0 83.33333%;
+  max-width: 83.33333%;
+}
+
+/* line 1190, app/assets/stylesheets/custom.scss */
+.btn-blue-4 {
+  color: #fff;
+  background-color: #187caa;
+}
+
+/* line 1195, app/assets/stylesheets/custom.scss */
+.form-group {
+  margin-bottom: 1rem;
+}
+
+/* line 1199, app/assets/stylesheets/custom.scss */
+.input-group > .custom-file, .input-group > .custom-select,
+.input-group > .form-control {
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  width: 1%;
+  margin-bottom: 0;
+}
+
+/* line 1208, app/assets/stylesheets/custom.scss */
+.form-control {
+  display: block;
+  width: 100%;
+  padding: .23rem .6rem;
+  font-size: 12px;
+  line-height: 1.5;
+  color: #6d6f71;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #eaeaea;
+  border-radius: 3px;
+  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  margin-bottom: 10px;
+}
+
+/* line 1223, app/assets/stylesheets/custom.scss */
+label {
+  display: inline-block;
+  margin-bottom: .5rem;
+}
+
+/* line 1228, app/assets/stylesheets/custom.scss */
+.font-italic {
+  font-style: italic !important;
+}

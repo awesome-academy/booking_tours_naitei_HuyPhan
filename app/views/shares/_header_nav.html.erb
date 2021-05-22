@@ -40,11 +40,12 @@
                 <% end %>
                 <% if logged_in? %>
                   <li>
-                    <a href="#">
+                    <%= link_to user_path(id: current_user.id) do %>
                       <i class="font-size-30 color-ff8f00d9 fa fa-lock"></i>
                       <%= @current_user.name %>
-                    </a>
+                    <%end%>
                   </li>
+
                   <li>
                     <%= link_to logout_path, method: :DELETE  do %>
                       <i class="font-size-30 red-color fa fa-sign-out" aria-hidden="true"></i>
