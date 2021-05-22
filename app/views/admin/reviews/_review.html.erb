@@ -7,15 +7,15 @@
   <td><%= review.status %></td>
   <td><%= l review.created_at %></td>
   <td>
-    <%= link_to review_path(id: review.id), title: "Show this review" do %> 
+    <%= link_to review_path(id: review.id), title: "Hiển thị bài review " do %> 
       <i class="text-primary fa fa-eye" aria-hidden="true"></i>
     <% end %>
 
-    <%= link_to rejected_admin_review_path(id: review.id), method: :patch, title: "Reject this review" do %>
+    <%= link_to rejected_admin_review_path(id: review.id), method: :patch, title: "Từ chối bài review này " do %>
       <i class="text-danger fa fa-times-circle-o"></i>
     <% end %>
 
-    <%= link_to public_view_admin_review_path(id: review.id), title: "Public this review", method: :patch do %>
+    <%= link_to public_view_admin_review_path(id: review.id), title: "Công khai bài review này ", method: :patch do %>
       <i class="fa fa-globe" aria-hidden="true"></i>
     <% end %>
 

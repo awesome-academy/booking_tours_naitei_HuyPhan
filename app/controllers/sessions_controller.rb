@@ -4,18 +4,18 @@ class SessionsController < ApplicationController
     if @user&.authenticate params[:sessions][:password]
       log_in @user
       handler_remember @user
-      flash[:success] = "Login thanh cong"
+      flash[:success] = "Đăng nhập thành công"
       redirect_to (@user.admin? ? admin_booking_tours_path : root_path )
     else
       load_tours
-      flash[:error] = "Email/Password khong hop le"
+      flash[:error] = "Email, mật khẩu không hợp lệ"
       render "static_pages/home"
     end
   end
 
   def destroy
     log_out if logged_in?
-    flash[:info] = "Logout thanh cong"
+    flash[:info] = "Đăng xuất thành công"
     redirect_to root_path
   end
 

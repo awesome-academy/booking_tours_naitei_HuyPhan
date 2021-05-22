@@ -16,8 +16,8 @@
       <div class="col-md-12">
         <nav>
           <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
-            <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#reviews_tab" role="tab" aria-controls="nav-home" aria-selected="true">Reviews</a>
-            <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#my_reviews_tab" role="tab" aria-controls="nav-profile" aria-selected="false">My Review</a>
+            <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#reviews_tab" role="tab" aria-controls="nav-home" aria-selected="true">Bài đánh giá</a>
+            <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#my_reviews_tab" role="tab" aria-controls="nav-profile" aria-selected="false">Bài đánh giá cá nhân</a>
           </div>
         </nav>
         <div class="tab-content mt-3" id="nav-tabContent">
@@ -41,7 +41,7 @@
                   <%= render partial: "my_review", locals: {review: review, index: index} %>
                 <% end %>
                 <% unless @my_reviews.any? %>
-                  Ban chua tao review
+                  Bạn chưa tạo bài đánh giá
                 <% end %>
               </tbody>
             </table>

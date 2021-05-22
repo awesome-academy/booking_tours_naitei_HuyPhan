@@ -1,9 +1,19 @@
+<!--about-us start -->
+<section id="home" class="about-us">
+  <div class="container">
+    <div class="about-us-content">
+      <div class="row header-image">
+      </div><!--/.row-->
+    </div><!--/.about-us-content-->
+  </div><!--/.container-->
+
+</section><!--/.about-us-->
+
 <% provide :title, t("account.signup") %>
 <h1 class="text-center"><%=t("account.signup")%></h1>
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
-    <%= form_for(@user) do |f| %>
-      <%= render "shared/error_messages", object: f.object %>
+    <%= form_for @user do |f| %>
       <%= f.label :name, t("account.name") %>
       <%= f.text_field :name %>
       <%= f.label :email, t("account.email") %>

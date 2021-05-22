@@ -6,9 +6,9 @@ class Admin::BookingToursController < ApplicationController
 
   def rejected_booking
     @booking_tour.rejected!
-    flash[:success] = "Da thuc hien update thanh cong"
+    flash[:success] = "Đã thực hiện cập nhật thành công"
   rescue
-    flash[:error] = "Da co loi xay ra, vui long load lai page"
+    flash[:error] = "Đã có lỗi xảy ra, vui long tải lại trang"
   ensure
     respond_to do |format|
       format.js
@@ -17,9 +17,9 @@ class Admin::BookingToursController < ApplicationController
 
   def approved_booking
     @booking_tour.approved!
-    flash[:success] = "Da thuc hien update thanh cong"
+    flash[:success] = "Đã thực hiện cập nhật thành công"
   rescue
-    flash[:error] = "Da co loi xay ra, vui long load lai page"
+    flash[:error] = "Đã có lỗi xảy ra, vui long tải lại trang"
   ensure
     respond_to do |format|
       format.js
@@ -28,9 +28,9 @@ class Admin::BookingToursController < ApplicationController
 
   def pending_booking
     @booking_tour.pending!
-    flash[:success] = "Da thuc hien update thanh cong"
+    flash[:success] = "Đã thực hiện cập nhật thành công"
   rescue
-    flash[:error] = "Da co loi xay ra, vui long load lai page"
+    flash[:error] = "Đã có lỗi xảy ra, vui long tải lại trang"
   ensure
     respond_to do |format|
       format.js
@@ -50,7 +50,7 @@ class Admin::BookingToursController < ApplicationController
     @booking_tour = BookingTour.find_by id: params[:id]
     return if @booking_tour
 
-    flash[:error] = "Da co loi xay ra, vui long load lai trang"
+    flash[:error] = "Đã có lỗi xảy ra, vui long tải lại trang"
     redirect_to admin_booking_tours_path
   end
 end

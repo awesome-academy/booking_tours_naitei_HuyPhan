@@ -3,10 +3,10 @@
     <%= check_image(tour.image) %>
     <div class="single-package-item-txt">
       <h3>
-        <span><%= link_to tour.name, tour_path(tour) %></br>
+        <span><%= link_to tour.name, tour_path(tour), class: "mb-10" %></br>
         <span class="pull-right"><%= number_to_currency tour.price %></span>
       </h3>
-      <div class="packages-para">
+      <div class="packages-para"> 
         <p>
           <span> 
             <i class="fa fa-angle-right"></i>
@@ -31,9 +31,9 @@
         </p>
       </div><!--/.packages-review-->
       <div class="about-btn">
-        <%= link_to "Book now!", tour_path(tour), class: "about-view packages-btn" %>
+        <%= link_to "Đặt tour", tour_path(tour), class: "about-view packages-btn" %>
         <% if is_review? tour.id %>
-          <%= link_to "Review", new_tour_review_path(tour_id: tour), class: "about-view packages-btn" %>
+          <%= link_to "Đánh giá", new_tour_review_path(tour_id: tour), class: "about-view packages-btn" %>
         <% end %>
       </div><!--/.about-btn-->
     </div><!--/.single-package-item-txt-->

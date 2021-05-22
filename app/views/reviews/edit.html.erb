@@ -19,23 +19,47 @@
     	<aside class="col-sm-12">
         <div class="row">
       		<div id="form-new-review">
-      		<div class="col-12 col-md-12">
-  			<div class="bg-info card border-primary rounded-0" style="p">
-   				 <h3 class="title text-uppercase">
-     			 Edit your review
+
+           <div class="col-12 col-md-4">
+            <div class="img-big-wrap">
+            <div>
+              <%= check_image(@tour.image) %>
+            </div>
+            </div>
+
+             <h3 class="title text-uppercase" style="margin-top: 10px"><%= @tour.name %></h3>
+             <div class="rating info">
+            <div class="stars" style="margin-top: 10px">
+              <%= raw display_stars_layout @tour %>
+            </div>
+            <div class="mb-3 mt-3 info" style="margin-top: 10px">
+            <span class="h7 text-success">
+              Duaration: <%= t "duaration", count: @tour.duaration %></span>
+          </div>
+          <div class="mb-3 mt-3 info" style="margin-top: 10px">
+            <span class="price-title">Price:</span>
+            <span class="price color-price-waanbii"><%= number_to_currency @tour.price %></span>
+          </div>
+          </div>
+
+          </div>
+          </div>
+
+      		<div class="col-12 col-md-8">
+  			   <div class="bg-info card border-primary rounded-0" style="p">
+   				 <h3 class="title text-uppercase mb-10">
+     		     Chỉnh sửa bài đánh giá của bạn
    				 </h3>
     			<!--Form with header-->
    			 <%= form_for @review, url:review_path(id: @review.id), method: :patch do |f| %>
-     		 <%= f.number_field :point %>
       		 <%= f.text_area :content, class: "ckeditor", id: "edit_review" %>
 
-      		<%= f.submit "Save", class: "btn btn-success" %>
+      		<%= f.submit "Lưu thay đổi", class: "btn btn-success mt-10" %>
     	<% end %>
     <!--Form with header-->
  	      </div>
 	      </div>
-          </div>
-          </div>
+
     	</aside>
     </div>
   </div>
@@ -65,7 +89,6 @@
 		{ name: 'paragraph', items: [ 'NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote', 'CreateDiv', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock', '-', 'BidiLtr', 'BidiRtl', 'Language' ] },
 		{ name: 'links', items: [ 'Link', 'Unlink', 'Anchor' ] },
 		{ name: 'insert', items: [ 'Image', 'Flash', 'Table', 'HorizontalRule', 'Smiley', 'SpecialChar', 'PageBreak', 'Iframe' ] },
-		'/',
 		{ name: 'styles', items: [ 'Styles', 'Format', 'Font', 'FontSize' ] },
 		{ name: 'colors', items: [ 'TextColor', 'BGColor' ] },
 		{ name: 'tools', items: [ 'Maximize', 'ShowBlocks' ] },
