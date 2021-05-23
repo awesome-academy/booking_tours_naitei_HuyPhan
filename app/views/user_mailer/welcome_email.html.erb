@@ -19,7 +19,7 @@
 <p>Bạn đã đăng ký tài khoản thành công tại Booking Tour.</p>
 <p>Để kích hoạt tài khoản, vui lòng nhấn vào đường link dưới đây:</p>
 <br>
-<p><%= link_to "Xác thực", confirm_mail_address_url(token: @user.confirm_token) %></p>
+<p><%= link_to "Xác thực", confirm_mail_address_url(email: @user.email, token: Digest::MD5.hexdigest(@user.confirm_token)) %></p>
 <br>
 <p>Một lần nữa, cảm ơn bạn vì đã tham gia cùng chúng tôi.</p>
 <br>

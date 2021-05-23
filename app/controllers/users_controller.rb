@@ -20,8 +20,8 @@
   end
 
   def confirm_mail_address
-    @user = User.find_by confirm_token: params[:token]
-    if @user
+    @user = User.find_by email: params[:email]
+    if @user && Digest::MD5.hexdigest(@user.confirm_token) == params[:token]
       @user.update confirm_token: nil, confirmed_at: Time.now
       log_in @user
       flash[:success] = 'Kích hoạt tài khoản thành công'
