@@ -1,6 +1,13 @@
 class SessionsController < ApplicationController
   def create
     @user = User.find_by email: params[:sessions][:email].downcase
+
+    if @user && @user.role != 'admin' &&(!@user.confirm_token.nil? || @user.confirmed_at.nil? || @user.confirmed_at > Time.now)
+      flash[:success] = 'Tài khoản chưa được kích hoạt, vui lòng kiểm tra email để kích hoạt tài khoản'
+      redirect_to root_path
+      return
+    end
+
     if @user&.authenticate params[:sessions][:password]
       log_in @user
       handler_remember @user
