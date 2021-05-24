@@ -22,7 +22,7 @@ class SessionsController < ApplicationController
 
   def destroy
     log_out if logged_in?
-    flash[:info] = "Đăng xuất thành công"
+    flash[:success] = "Đăng xuất thành công"
     redirect_to root_path
   end
 

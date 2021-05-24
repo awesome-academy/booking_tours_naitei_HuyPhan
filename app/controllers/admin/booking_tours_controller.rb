@@ -1,6 +1,7 @@
 class Admin::BookingToursController < ApplicationController
   before_action :load_booking_tours
   before_action :load_booking_tour, except: %i(index)
+  before_action :load_tour, only: :show
 
   def index; end
 
@@ -53,4 +54,13 @@ class Admin::BookingToursController < ApplicationController
     flash[:error] = "Đã có lỗi xảy ra, vui long tải lại trang"
     redirect_to admin_booking_tours_path
   end
+
+    def load_tour
+    @tour = Tour.find_by id: params[:id]
+    return if @tour
+
+    flash[:error] = "Đã có lỗi xảy ra, vui lòng tải lại trang"
+    redirect_to tours_path
+    end
+
 end

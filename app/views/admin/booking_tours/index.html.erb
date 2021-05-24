@@ -26,23 +26,25 @@
           <table class="table table-striped table-hover" id="tbl_booking_tours">
             <thead>
               <tr>
-                <th scope="col">No.</th>
-                <th scope="col">Tour name</th>
-                <th scope="col">Price</th>
-                <th scope="col">Duaration</th>
-                <th scope="col">Total Price</th>
-                <th scope="col">Start Date</th>
-                <th scope="col">Quantity persons</th>
-                <th scope="col">Contact name</th>
-                <th scope="col">Contact email</th>
-                <th scope="col">Contact phone</th>
-                <th scope="col">Status</th>
+                <th scope="col">Số</th>
+                <th scope="col">Tên tour</th>
+                <th scope="col">Giá</th>
+                <th scope="col", style="width: 96px; text-align: center">Thời hạn</th>
+                <th scope="col", style="width: 78px; text-align: center">Tổng</th>
+                <th scope="col", style="text-align: center">Ngày</th>
+                <th scope="col", style="width: 91px; text-align: center">Số người</th>
+                <th scope="col", style="text-align: center">Liên hệ</th>
+                <th scope="col", style="text-align: center">Email</th>
+                <th scope="col", style="width: 87px; text-align: center">SĐT</th>
+                <th scope="col", style="width: 89px; text-align: center">Trạng thái</th>
                 <th></th>
               </tr>
             </thead>
 
             <tbody id="booking_tours_admin">
-              <%= render(@booking_tours) || "Bạn chưa thực hiện dặt Tour" %>
+              <% @booking_tours.each_with_index do |booking_tour, index|%>
+                <%= render partial: "booking_tour", locals: {booking_tour: booking_tour, index: index} %>
+              <% end %>
             </tbody>
           </table>
         </div>
