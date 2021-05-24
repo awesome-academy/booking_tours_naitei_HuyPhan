@@ -14,8 +14,8 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12 mt-10">
-        <h3 class="title"> Static chart: Booking Tours/ Month</h3>
         <%= line_chart BookingTour.where("status <> 1").group_by_month_of_year(:created_at, format: "%b").count %>
+        <h3 class="title", style="margin-top: 20px; margin-bottom: 20px; text-align: center; "> Biểu đồ thống kê: Số lượng tour được đặt trên tháng</h3>
       </div>
     </div>
   </div>
@@ -25,8 +25,8 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <h3 class="title mb-10 mt-10"> Static chart: Reviews/ Month(Only staticics for review is not status reject)</h3>
         <%= line_chart Review.where("status <> 1").group_by_month_of_year(:created_at, format: "%b").count %>
+        <h3 class="title", style="margin-top: 20px; margin-bottom: 20px; text-align: center; "> Biểu đồ thống kê: Số lượng bài đánh giá trên tháng(Chỉ những đánh giá không bị từ chối)</h3>
       </div>
     </div>
   </div>

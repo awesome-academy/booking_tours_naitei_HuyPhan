@@ -35,6 +35,7 @@ gem 'underscore-rails'
 gem "chartkick"
 gem 'groupdate'
 gem 'toastr-rails'
+gem 'figaro'
 
 
 group :development, :test do
