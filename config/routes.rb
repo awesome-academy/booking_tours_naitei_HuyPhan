@@ -40,5 +40,7 @@ Rails.application.routes.draw do
       end
     end
     get 'dashboards/index'
+    resources :tours
   end
+
 end

@@ -1,0 +1,47 @@
+<!--about-us start -->
+<section id="home" class="about-us">
+  <div class="container">
+    <div class="about-us-content">
+      <div class="row header-image">
+      </div><!--/.row-->
+    </div><!--/.about-us-content-->
+  </div><!--/.container-->
+
+</section><!--/.about-us-->
+
+<!--packages start-->
+<section id="tabs" class="project-tab">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="tab-content mt-3" id="nav-tabContent">
+
+            <table class="table" cellspacing="0">
+              <thead>
+                <tr>
+                  <th>Số</th>
+                  <th>Hình ảnh</th>
+                  <th>Tên tour</th>
+                  <th>Nội dung</th>
+                  <th>Giá</th>
+                  <th>Ngày cập nhật</th>
+                  <th class="col-3">
+                  <%= button_to "Thêm tour", new_admin_tour_path, method: :get, class: "btn btn-primary btn-block" %>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @tours.each_with_index do |tour, index|%>
+                  <%= render partial: "tour", locals: {tour: tour, index: index} %>
+                <% end %>
+                <% unless @tours.any? %>
+                  Chưa có bất cứ tour nào
+                <% end %>
+              </tbody>
+            </table>
+            <%= will_paginate @tours, class: "my_reviews" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,8 +1,6 @@
 class Tour < ApplicationRecord
   belongs_to :category
 
-  has_many :rates, dependent: :destroy
-  has_many :comments, dependent: :destroy
   has_many :booking_tours, dependent: :destroy
   has_many :reviews, dependent: :destroy
 
@@ -14,4 +12,6 @@ class Tour < ApplicationRecord
   scope :search_by_duaration, ->duaration{where duaration: duaration if duaration.present?}
 
   scope :search_by_name, ->name{where("name like ?",  "%#{name}%") if name.present? }
+
+  scope :sort_by_updated_at, -> {order updated_at: :desc}
 end

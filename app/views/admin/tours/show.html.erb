@@ -1,0 +1,91 @@
+<% content_for :css do %>
+  <link rel="stylesheet" href="/assets/css/tour-detail.css" />   
+<% end %>
+<!--about-us start -->
+<section id="home" class="about-us">
+  <div class="container">
+    <div class="about-us-content">
+      <div class="row header-image">
+      </div><!--/.row-->
+    </div><!--/.about-us-content-->
+  </div><!--/.container-->
+
+</section><!--/.about-us-->
+
+
+<% provide :title, @tour.name %>
+<div class="container">
+  <div class="now-detail-profile">
+    <div class="header-user-profile">Thông tin tour</div>
+    <div class="content-user-profile">
+      <div class="user-profile-update">
+        <div class="title-user mt-10">Tải ảnh tour </div>
+        <div class="row">
+          <div class="col-3">
+            <div class="user-avatar-image">
+              <%= image_tag @tour.image, alt: @tour.name,
+                id: "load_user_image" %>
+            </div>
+          </div>
+          <div class="col-9">
+             <%= form_for @tour, url: admin_tour_path, html: {method: :put} do |f| %>
+              <div class="form-group">
+                <span>Tải lên từ</span>
+                <div class="custom-file-image">
+                  <%= f.file_field :image, hidden: "true",
+                    accept: Settings.valid_image_types.join(",") %>
+                  <%= f.label :image, class: "label-custom" do %>
+                    Chọn
+                  <% end %>
+                </div>
+              </div>
+              <button class="btn btn-success" type="submit">
+               Cập nhật
+          </div>
+        </div>
+      </div>
+      <div class="user-profile-update">
+          <div class="title-user">Thay đổi thông tin tour</div>
+          <div class="row form-group align-items-center">
+            <div class="col-2 txt-bold">Tên tour</div>
+            <div class="col-4">
+              <div class="input-group">
+                <%= f.text_field :name, class: "form-control",
+                  placeholder: "Tên", required: true %>
+              </div>
+            </div>
+          </div>
+
+          <div class="row form-group align-items-center">
+            <div class="col-2 txt-bold">Nội dung</div>
+            <div class="col-4">
+              <div class="input-group">
+                <%= f.text_area :description, class: "form-control",
+                  placeholder: "Nội dung", required: true %>
+              </div>
+            </div>
+          </div>
+
+            <div class="row form-group align-items-center">
+            <div class="col-2 txt-bold">Giá</div>
+            <div class="col-4">
+              <div class="input-group">
+                <%= f.text_field :price, class: "form-control",
+                  placeholder: "Giá", required: true %>
+              </div>
+            </div>
+          </div> 
+
+
+          <div class="row">
+            <div class="col-3" style="margin-right: 20px">
+              <button type="submit" class="btn btn-success btn-block">
+                Lưu thay đổi
+              </button>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div> 

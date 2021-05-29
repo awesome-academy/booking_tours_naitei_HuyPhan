@@ -5,9 +5,9 @@
       <%= booking_tour.tour.name %>
     <% end %>
   </th>
-  <td scope="row"><%= number_to_currency booking_tour.price %></td>
+  <td scope="row"><%= booking_tour.price %>đ</td>
   <td scope="row"><%= t "duaration", count: booking_tour.duaration %></td>
-  <td scope="row"><%= number_to_currency booking_tour.total_price %></td>
+  <td scope="row"><%= booking_tour.total_price %>đ</td>
   <td scope="row"><%= booking_tour.start_date %></td>
   <td scope="row"><%= booking_tour.quantity_person %></td>
   <td scope="row"><%= booking_tour.customer_name %></td>
