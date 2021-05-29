@@ -1,6 +1,7 @@
 <tr>
   <td><%= index + 1 %></td>
   <td><%= link_to review.tour.name, tour_path(id: review.tour.id) %></td>
+  <td><%= review.title %></td>
   <td><%= raw(review.content[0..50] << (review.content.length > 50 ? " ..." : "")) %></td>
   <td><%= review.point %></td>
   <td><%= review.status %></td>

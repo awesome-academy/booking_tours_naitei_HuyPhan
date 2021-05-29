@@ -20,25 +20,26 @@
               <thead>
                 <tr>
                   <th>Số</th>
-                  <th>Khách hàng</th>
+                  <th>Hình ảnh</th>
                   <th>Tên tour</th>
                   <th>Nội dung</th>
-                  <th>Điểm</th>
-                  <th>Trạng thái</th>
-                  <th>Ngày</th>
-                  <th></th>
+                  <th>Giá</th>
+                  <th>Ngày cập nhật</th>
+                  <th class="col-3">
+                  <%= button_to "Thêm tour", new_admin_tour_path, method: :get, class: "btn btn-primary btn-block" %>
+                  </th>
                 </tr>
               </thead>
               <tbody>
-                <% @reviews.each_with_index do |review, index|%>
-                  <%= render partial: "review", locals: {review: review, index: index} %>
+                <% @tours.each_with_index do |tour, index|%>
+                  <%= render partial: "tour", locals: {tour: tour, index: index} %>
                 <% end %>
-                <% unless @reviews.any? %>
+                <% unless @tours.any? %>
                   Chưa có bất cứ tour nào
                 <% end %>
               </tbody>
             </table>
-            <%= will_paginate @reviews, class: "my_reviews" %>
+            <%= will_paginate @tours, class: "my_reviews" %>
         </div>
       </div>
     </div>

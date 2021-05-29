@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   delete "logout", to: "sessions#destroy"
   get "/reviews/from_url", to: "reviews#from_url_view"
   post "/reviews/from_url", to: "reviews#from_url"
+  get "confirm_mail_address", to: "users#confirm_mail_address", as: "confirm_mail_address"
   
   resources :users
   resources :reviews
@@ -39,5 +40,7 @@ Rails.application.routes.draw do
       end
     end
     get 'dashboards/index'
+    resources :tours
   end
+
 end

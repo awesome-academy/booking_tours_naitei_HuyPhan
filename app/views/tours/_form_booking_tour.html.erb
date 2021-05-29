@@ -23,7 +23,7 @@
         <div class="form-group gap-auto">
           <div class="input-group">
             <span class="input-group-addon"><i class="fa  fa-usd text-info"></i></span>
-            <%= f.text_field :total_price, value: number_to_currency(@tour.price),
+            <%= f.text_field :total_price, value: @tour.price,
               class: "form-control underlined", required: true, disabled: true,
               placeholder: "Total price" ,style: "z-index: inherit;" %>
           </div>

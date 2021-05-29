@@ -3,8 +3,8 @@
     <%= check_image(tour.image) %>
     <div class="single-package-item-txt">
       <h3>
-        <span><%= link_to tour.name, tour_path(tour), class: "mb-10" %></br>
-        <span class="pull-right"><%= number_to_currency tour.price %></span>
+        <span><%= link_to tour.name, tour_path(tour), class: "mb-10", style: "color: #00d8ff" %></br>
+        <span class="pull-right"><%= tour.price %>đ</span>
       </h3>
       <div class="packages-para"> 
         <p>
