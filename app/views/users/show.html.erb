@@ -20,8 +20,8 @@
         <div class="row">
           <div class="col-3">
             <div class="user-avatar-image">
-              <%= image_tag @user.avatar, alt: @user.name,
-                id: "load_user_image" %>
+              <% if @user.avatar.attached? %><%= image_tag url_for(@user.avatar) %>
+              <% end %>
             </div>
           </div>
           <div class="col-9">
@@ -29,7 +29,7 @@
               <div class="form-group">
                 <span>Tải lên từ</span>
                 <div class="custom-file-image">
-                  <%= f.file_field :image, hidden: "true", required: "true",
+                  <%= f.file_field :image, hidden: "true", 
                     accept: Settings.valid_image_types.join(",") %>
                   <%= f.label :image, class: "label-custom" do %>
                     <%= t "Chọn" %>

@@ -19,7 +19,7 @@
     if @user.update user_params
       flash[:success] = "Cập nhật thông tin khách hàng thành công"
     else
-      flash[:danger] = "Cập nhật thông tin khách hàng thất bại"
+      flash[:error] = "Cập nhật thông tin khách hàng thất bại"
     end
     @user.avatar.attach params[:user][:image] if params[:user][:image]
     redirect_to @user

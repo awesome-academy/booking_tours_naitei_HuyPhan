@@ -8,7 +8,7 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    @review = @tour.reviews.new review_params
+    @review = @tour.reviews.new review_params.merge(feel_status: 0)
     if @review.save
       flash[:info] = "Tạo review thành công"
     else
