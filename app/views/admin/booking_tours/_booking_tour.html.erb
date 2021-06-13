@@ -1,20 +1,20 @@
 <tr>
-  <td scope="row">#</td>
+  <td scope="row"><%= index+1 %></td>
   <th scope="row">
     <%= link_to tour_path(booking_tour.tour.id) do %>
       <%= booking_tour.tour.name %>
     <% end %>
   </th>
-  <td scope="row"><%= number_to_currency booking_tour.price %></td>
+  <td scope="row"><%= booking_tour.price %>đ</td>
   <td scope="row"><%= t "duaration", count: booking_tour.duaration %></td>
-  <td scope="row"><%= number_to_currency booking_tour.total_price %></td>
+  <td scope="row"><%= booking_tour.total_price %>đ</td>
   <td scope="row"><%= booking_tour.start_date %></td>
   <td scope="row"><%= booking_tour.quantity_person %></td>
   <td scope="row"><%= booking_tour.customer_name %></td>
-  <td scope="row"><%= booking_tour.customer_email %></td>
+  <td scope="row" style="width: 5px"><%= booking_tour.customer_email %></td>
   <td scope="row"><%= booking_tour.customer_phone %></td>
   <th scope="row"><%= booking_tour.status %></th>
-  <th scope="row">
+  <th scope="row" style="width: 113px!important">
     <%= link_to admin_booking_tour_path(id: booking_tour.id),
       'data-toggle' => "tooltip", "data-placement" => "top", "title" => "View Detail" do %>
       <%= image_tag "booking/see.png", class: "padding-3", size: "30x25", alt: "Show detail" %>

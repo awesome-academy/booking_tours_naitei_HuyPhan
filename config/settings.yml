@@ -12,6 +12,9 @@ tour:
 paginate:
   page_6: 6
   page_8: 8
+  page_9: 9
 
 image_default: "https://tourdanangcity.vn/wp-content/uploads/2018/04/lang_co-tour-tour-hue-1-ngay.jpg?v=1615422534"
 
+max_size_image: 5
+valid_image_types: ["image/jpeg", "image/gif", "image/png"] 

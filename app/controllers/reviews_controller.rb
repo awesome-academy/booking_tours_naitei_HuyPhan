@@ -8,7 +8,7 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    @review = @tour.reviews.new review_params
+    @review = @tour.reviews.new review_params.merge(feel_status: 0)
     if @review.save
       flash[:info] = "Tạo review thành công"
     else
@@ -84,10 +84,6 @@ class ReviewsController < ApplicationController
   end 
 
 
-  def review_params
-    params.require(:review).permit(:content)
-  end  
-
   def destroy
     @review.destroy
     flash[:success] = "Bạn đã xóa thành công!"
@@ -98,7 +94,7 @@ class ReviewsController < ApplicationController
 
   def review_params
       params.require(:review)
-      .permit(:content, :point)
+      .permit(:content, :point, :title)
       .merge(user_id: current_user.id)
   end
 

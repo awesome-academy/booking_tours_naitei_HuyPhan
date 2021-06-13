@@ -1,10 +1,125 @@
-<% provide(:title, @user.name) %>
-<div class="row">
-  <aside class="col-md-4">
-    <section class="user_info">
-      <h1>
-        <%= @user.name %>
-      </h1>
-    </section>
-  </aside>
+<!--about-us start -->
+<section id="home" class="about-us">
+  <div class="container">
+    <div class="about-us-content">
+      <div class="row header-image">
+      </div><!--/.row-->
+    </div><!--/.about-us-content-->
+  </div><!--/.container-->
+
+</section><!--/.about-us-->
+
+
+<<% provide :title, @user.name %>
+<div class="container">
+  <div class="now-detail-profile">
+    <div class="header-user-profile">Thông tin khách hàng</div>
+    <div class="content-user-profile">
+      <div class="user-profile-update">
+        <div class="title-user mt-10">Tải ảnh đại diện </div>
+        <div class="row">
+          <div class="col-3">
+            <div class="user-avatar-image">
+              <% if @user.avatar.attached? %><%= image_tag url_for(@user.avatar) %>
+              <% end %>
+            </div>
+          </div>
+          <div class="col-9">
+             <%= form_for @user, url: user_path, html: {method: :put} do |f| %>
+              <div class="form-group">
+                <span>Tải lên từ</span>
+                <div class="custom-file-image">
+                  <%= f.file_field :image, hidden: "true", 
+                    accept: Settings.valid_image_types.join(",") %>
+                  <%= f.label :image, class: "label-custom" do %>
+                    <%= t "Chọn" %>
+                  <% end %>
+                  <span class="font-italic font13">
+                    Chấp nhận GIF, JPEG, PNG, BMP với kích thước tối đa 5.0 MB
+                  </span>
+                </div>
+              </div>
+              <button class="btn btn-success" type="submit">
+               Cập nhật
+          </div>
+        </div>
+      </div>
+      <div class="user-profile-update">
+          <div class="title-user">Thay đổi thông tin</div>
+          <div class="row form-group align-items-center">
+            <div class="col-2 txt-bold">Tên</div>
+            <div class="col-4">
+              <div class="input-group">
+                <%= f.text_field :name, class: "form-control",
+                  placeholder: "tên", required: true %>
+              </div>
+            </div>
+          </div>
+        
+          <div class="row form-group align-items-center">
+            <div class="col-2 txt-bold">Email</div>
+            <div class="col-4">
+              <div class="input-group">
+                <div class="show-email"><%= @user.email %></div>
+              </div>
+            </div>
+          </div>
+          <div class="row form-group align-items-center">
+            <div class="col-2 txt-bold">Mật khẩu hiện tại</div>
+            <div class="col-4">
+              <div class="input-group">
+                <%= f.password_field :current_password, class: "form-control",
+                  placeholder: "Mật khẩu hiện tại" %>
+              </div>
+            </div>
+          </div>
+          <div class="row form-group align-items-center">
+            <div class="col-2 txt-bold"> Mật khẩu mới</div>
+            <div class="col-4">
+              <div class="input-group">
+                <%= f.password_field :password, class: "form-control",
+                  placeholder: "Mật khẩu mới" %>
+              </div>
+            </div>
+          </div>
+          <div class="row form-group align-items-center">
+            <div class="col-2 txt-bold">Xác nhận</div>
+            <div class="col-4">
+              <div class="input-group">
+                <%= f.password_field :password_confirmation,
+                  class: "form-control", placeholder: "Xác nhận" %>
+              </div>
+            </div>
+          </div>
+
+            <div class="row form-group align-items-center">
+            <div class="col-2 txt-bold">Điện thoại</div>
+            <div class="col-4">
+              <div class="input-group">
+                <%= f.text_field :phone, class: "form-control",
+                  placeholder: "Điện thoại", required: true %>
+              </div>
+            </div>
+          </div> 
+
+            <div class="row form-group align-items-center">
+            <div class="col-2 txt-bold">Địa chỉ</div>
+            <div class="col-4">
+              <div class="input-group">
+                <%= f.text_field :address, class: "form-control",
+                  placeholder: "Địa chỉ", required: true %>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-3">
+              <button type="submit" class="btn btn-success btn-block">
+                Lưu thay đổi
+              </button>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>

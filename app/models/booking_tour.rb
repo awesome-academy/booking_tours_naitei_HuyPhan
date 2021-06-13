@@ -23,6 +23,7 @@ class BookingTour < ApplicationRecord
 
   scope :sort_by_update_at, -> {order updated_at: :desc}
   scope :sort_by_start_date, -> {order start_date: :desc}
+  scope :sort_by_created_at, -> {order created_at: :desc}
   private
 
   def valid_start_date

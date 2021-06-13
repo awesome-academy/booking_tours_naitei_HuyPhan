@@ -31,14 +31,14 @@
             </div>
           </div>
           <div class="mb-3 mt-3" style="margin-top: 10px">
-              Duaration: <%= t "duaration", count: @tour.duaration %>
+             Thời hạn: <%= t "duaration", count: @tour.duaration %>
           <div class="mb-3 mt-3" style="margin-top: 10px">
-            <span class="price-title">Price:</span>
-            <span class="price color-price-waanbii"><%= number_to_currency @tour.price %></span>
+            <span class="price-title">Giá:</span>
+            <span class="price color-price-waanbii"><%= @tour.price %>đ</span>
           </div>
           <dl class="item-property info" style="margin-top: 10px">
-            <div>Description</div>
-            <dd><p><%= @tour.description %></p></dd>
+            <div>Nội dung</div>
+            <dd><p style=" margin-right: 50px; text-align: justify;"><%= @tour.description %></p></dd>
           </dl>
         </article>
       </aside>

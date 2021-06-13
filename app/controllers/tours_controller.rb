@@ -7,8 +7,8 @@ class ToursController < ApplicationController
     @tours = Tour.search_by_duaration(params[:duaration])
       .search_by_name(params[:name])
       .sort_by_name
-      .paginate(page: params[:page], per_page: Settings.paginate.page_6)
-  flash.now[:error] = "Nội dung tìm kiếm không tồn tại" unless @tours.any?
+      .paginate(page: params[:page], per_page: Settings.paginate.page_9)
+      flash.now[:error] = "Nội dung tìm kiếm không tồn tại" unless @tours.any?
   end
 
   private

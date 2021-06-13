@@ -1,7 +1,11 @@
 module ToursHelper
   def display_stars_layout tour
     points = tour.reviews.pluck :point
-    average_point = points.sum(0)/points.size
+    if points.size != 0
+    average_point = points.sum(0)/points.size 
+    else
+      average_point = 0
+    end
     html_star_checked = ''
 
     (1..5).each do |index|

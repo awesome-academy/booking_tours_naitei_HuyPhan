@@ -1,0 +1,19 @@
+<tr>
+  <td><%= index + 1 %></td>
+  <td><%= link_to url_for(tour.image).truncate(25), url_for(tour.image) %></td>
+  <td><%= link_to tour.name, tour_path(id: tour.id) %></td>
+  <td><%= raw(tour.description[0..30] << (tour.description.length > 30 ? " ..." : "")) %></td>
+  <td><%= tour.price %></td>
+  <td><%= l tour.created_at %></td>
+  <td>
+     <%= link_to tour_path(id: tour.id) do %>
+      <i class="text-primary fa fa-eye" aria-hidden="true"></i>
+      <% end %>
+    <%= link_to admin_tour_path(id: tour.id), method: :delete do %>
+      <i class="text-danger fa fa-times-circle-o"></i>
+    <% end %>
+    <%= link_to admin_tour_path(id: tour.id) do %>
+      <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+    <% end %>
+  </td>
+</tr>

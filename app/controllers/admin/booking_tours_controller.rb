@@ -1,6 +1,7 @@
 class Admin::BookingToursController < ApplicationController
   before_action :load_booking_tours
   before_action :load_booking_tour, except: %i(index)
+  before_action :load_tour, only: :show
 
   def index; end
 
@@ -8,33 +9,27 @@ class Admin::BookingToursController < ApplicationController
     @booking_tour.rejected!
     flash[:success] = "Đã thực hiện cập nhật thành công"
   rescue
-    flash[:error] = "Đã có lỗi xảy ra, vui long tải lại trang"
+    flash[:error] = "Đã có lỗi xảy ra, vui lòng tải lại trang"
   ensure
-    respond_to do |format|
-      format.js
-    end
+     redirect_to admin_booking_tours_path 
   end
 
-  def approved_booking
+  def  approved_booking
     @booking_tour.approved!
     flash[:success] = "Đã thực hiện cập nhật thành công"
   rescue
-    flash[:error] = "Đã có lỗi xảy ra, vui long tải lại trang"
+    flash[:error] = "Đã có lỗi xảy ra, vui lòng tải lại trang"
   ensure
-    respond_to do |format|
-      format.js
+    redirect_to admin_booking_tours_path
     end
-  end
 
   def pending_booking
     @booking_tour.pending!
     flash[:success] = "Đã thực hiện cập nhật thành công"
   rescue
-    flash[:error] = "Đã có lỗi xảy ra, vui long tải lại trang"
+    flash[:error] = "Đã có lỗi xảy ra, vui lòng tải lại trang"
   ensure
-    respond_to do |format|
-      format.js
-    end
+   redirect_to admin_booking_tours_path
   end
 
   def show; end
@@ -42,7 +37,7 @@ class Admin::BookingToursController < ApplicationController
   private
 
   def load_booking_tours
-    @booking_tours = BookingTour.sort_by_start_date
+    @booking_tours = BookingTour.sort_by_created_at
       .paginate(page: params[:page], per_page: Settings.paginate.page_6)
     end
 
@@ -53,4 +48,13 @@ class Admin::BookingToursController < ApplicationController
     flash[:error] = "Đã có lỗi xảy ra, vui long tải lại trang"
     redirect_to admin_booking_tours_path
   end
+
+    def load_tour
+    @tour = Tour.find_by id: params[:id]
+    return if @tour
+
+    flash[:error] = "Đã có lỗi xảy ra, vui lòng tải lại trang"
+    redirect_to tours_path
+    end
+
 end

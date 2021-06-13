@@ -4,6 +4,8 @@ class User < ApplicationRecord
   attr_accessor :remember_token
 
   before_save :downcase_email
+  before_create :generate_confirm_token
+  after_create :send_confirm_email
 
   has_one :payment
 
@@ -23,7 +25,6 @@ class User < ApplicationRecord
     length: {maximum: Settings.user.email.max_length},
     format: {with: VALID_EMAIL_REGEX}, uniqueness: true
   validates :password, presence: true, length: {minimum: 6}, allow_nil: true
-
 
   def self.digest string
     cost =  if ActiveModel::SecurePassword.min_cost
@@ -57,5 +58,19 @@ class User < ApplicationRecord
 
   def downcase_email
     email.downcase!
+  end
+
+  def generate_token column
+    begin
+      self[column] = SecureRandom.urlsafe_base64
+    end while User.exists?(column => self[column])
+  end
+
+  def generate_confirm_token
+    generate_token :confirm_token
+  end
+
+  def send_confirm_email
+    UserMailer.welcome_email(self).deliver_now
   end
 end
