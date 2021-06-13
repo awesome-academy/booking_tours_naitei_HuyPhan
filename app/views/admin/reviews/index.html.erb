@@ -11,10 +11,26 @@
 
 <%= form_tag admin_reviews_path, method: :get do %>
 <div class="row bg-info card border-primary" style="background-color: #fbfbfb">   
-   <div class="col-lg-3 col-md-3 col-md-offset-3 col-sm-4">
-    <div class="single-tab-select-box">
+
+  <div class="col-lg-3 col-md-1 col-md-offset-1 col-sm-4"> 
+  <div class="single-tab-select-box">
+      <h2>Tên tour</h2>
       <div class="travel-select-icon">
-        <select name ="feel_status", class="form-control" style="margin-top: 20px">
+        <select name="tour_id", class="form-control">
+          <option value="">Tất cả</option>
+          <% @tours.each do |tour| %>
+            <option value="<%=tour.id%>" <%= !params[:tour_id].nil? && params[:tour_id].to_i == tour.id ? "selected" : "" %>><%=tour.name%></option><!-- /.option-->
+          <%end %>
+        </select><!-- /.select-->
+      </div><!-- /.travel-select-icon -->
+  </div><!--/.single-tab-select-box-->
+  </div>
+
+   <div class="col-lg-3 col-md-3 col-md-offset-1 col-sm-4">
+    <div class="single-tab-select-box">
+        <h2>Trạng thái</h2> 
+      <div class="travel-select-icon">
+        <select name ="feel_status", class="form-control" >
           <option value="">Tất cả</option>
           <option value="1">Tích cực</option>
           <option value="2">Tiêu cực</option>    
@@ -22,9 +38,9 @@
       </div><!-- /.travel-select-icon -->
     </div><!--/.single-tab-select-box-->
   </div>
-  <div class="col-lg-3 col-md-3 col-md-offset-0 col-sm-4">
-    <div class="about-btn" style="margin-top: 0px">
-          <%= submit_tag "Tìm kiếm ", class: "about-view travel-btn", style: "margin-top: 20px"%> 
+  <div class="col-lg-3 col-md-3 col-md-offset-1 col-sm-4">
+    <div class="about-btn" style="margin-top: 39px; margin-left: -100px">
+          <%= submit_tag "Tìm kiếm ", class: "about-view travel-btn"%> 
     </div><!--/.about-btn-->
   </div>
 </div><!--/.row-->
@@ -55,7 +71,7 @@
                   <%= render partial: "review", locals: {review: review, index: index} %>
                 <% end %>
                 <% unless @reviews.any? %>
-                  Chưa có bất cứ tour nào
+                  Không tìm thấy bài đánh giá
                 <% end %>
               </tbody>
             </table>

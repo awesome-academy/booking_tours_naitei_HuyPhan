@@ -24,9 +24,6 @@ body
 }
 a,a:hover,a:active,a:focus
 {
-    display: inline-block;
-    margin: 0;
-    padding: 0;
     text-decoration: none;
 }
 h1,h2,h3,h4,h5,h6
@@ -854,7 +851,7 @@ html,body
     font-family: 'Poppins', sans-serif;
     font-size: 20px;
     font-weight: 500;
-    padding: 20px 0;
+    padding: 20px 0 5px;
     position: relative;
 }
 .single-package-item h3:after
@@ -1625,4 +1622,22 @@ h5 a
 {
     text-align: center;
     vertical-align: middle;
+}
+.tour-name {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    height: 40px;
+}
+.tour-price {
+    text-align: right;
+}
+.tour-name :hover {
+    margin-bottom: 10px;
+}
+.flex-center {
+    align-items: center;
+    display: flex;
 }
