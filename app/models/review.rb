@@ -6,7 +6,7 @@ class Review < ApplicationRecord
   has_many :comments
 
   enum status: {waiting: 0, rejected: 1, view: 2}
-  enum feel_status: {not_analyzed: 0, positive: 1, negative: 2}
+  enum feel_status: {not_analyzed: 2, positive: 0, negative: 1}
   scope :sort_by_created_at, -> {order created_at: :desc}
   scope :sort_by_status, -> {order :status}
 

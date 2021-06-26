@@ -1,7 +1,9 @@
 class Admin::ToursController < ApplicationController
   before_action :load_tour, only: %i(show update destroy)
   
-  def show; end
+  def show
+     @category = Category.all
+  end
 
   def new
     @tour = Tour.new
@@ -65,6 +67,6 @@ class Admin::ToursController < ApplicationController
 
   def tour_params
     params.require(:tour)
-          .permit :name, :description, :price, :image, :duaration
+          .permit :name, :description, :price, :image, :duaration, :category_id
   end
 end

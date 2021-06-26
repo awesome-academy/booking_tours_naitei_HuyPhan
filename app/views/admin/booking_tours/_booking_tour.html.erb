@@ -15,12 +15,8 @@
   <td scope="row"><%= booking_tour.customer_phone %></td>
   <th scope="row"><%= booking_tour.status %></th>
   <th scope="row" style="width: 113px!important">
-    <%= link_to admin_booking_tour_path(id: booking_tour.id),
-      'data-toggle' => "tooltip", "data-placement" => "top", "title" => "View Detail" do %>
-      <%= image_tag "booking/see.png", class: "padding-3", size: "30x25", alt: "Show detail" %>
-    <% end %>
 
-    <% unless booking_tour.rejected? || booking_tour.approved? %>
+    <% unless booking_tour.rejected? || booking_tour.approved? ||  booking_tour.cancel? %>
       <%= link_to approved_admin_booking_tour_path(id: booking_tour.id), method: :patch, data: {confirm: "Bạn có chắc chắn muốn accept tour"}, remote: true,
       'data-toggle' => "tooltip", "data-placement" => "top", "title" => "Approved" do %>
         <%= image_tag "booking/tick.png", class: "padding-3", size: "30x25", alt: "Approved" %>

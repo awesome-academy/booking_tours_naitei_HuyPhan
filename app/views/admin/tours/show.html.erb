@@ -44,7 +44,7 @@
           </div>
         </div>
       </div>
-      <div class="user-profile-update">
+          <div class="user-profile-update">
           <div class="title-user">Thay đổi thông tin tour</div>
           <div class="row form-group align-items-center">
             <div class="col-2 txt-bold">Tên tour</div>
@@ -57,6 +57,21 @@
           </div>
 
           <div class="row form-group align-items-center">
+            <div class="col-2 txt-bold">Loại</div>
+            <div class="col-4">
+              <div class="input-group">
+                <select name="tour[category_id]" class="form-control">
+                <option value ="">Tất cả</option>
+                <% @category.each do |category| %>
+                  <option value="<%= category.id %>" <%= @tour.category_id == category.id ? "selected" : "" %>><%=category.name%></option>
+                <% end %>
+                </select>
+              </div>
+            </div>
+            </div>
+          
+
+          <div class="row form-group align-items-center">
             <div class="col-2 txt-bold">Nội dung</div>
             <div class="col-4">
               <div class="input-group">
@@ -65,6 +80,16 @@
               </div>
             </div>
           </div>
+
+          <div class="row form-group align-items-center">
+            <div class="col-2 txt-bold">Thời hạn</div>
+            <div class="col-4">
+              <div class="input-group">
+                <%= f.text_field :duaration, class: "form-control",
+                  placeholder: "Thời hạn", required: true %>
+              </div>
+            </div>
+          </div> 
 
             <div class="row form-group align-items-center">
             <div class="col-2 txt-bold">Giá</div>

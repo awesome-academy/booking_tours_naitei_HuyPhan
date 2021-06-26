@@ -18,8 +18,8 @@ class ApplicationController < ActionController::Base
     return if logged_in?
 
     store_location
-    flash[:danger] = t "message.alert_login"
-    redirect_to login_url
+    flash[:error] = "Bạn cần đăng ký tài khoản"
+    redirect_to new_user_path
   end
 
   def load_tours

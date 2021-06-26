@@ -29,13 +29,13 @@
           </div>
         </nav>
         <div class="tab-content mt-3" id="nav-tabContent">
-          <div class="tab-pane fade show active in" id="reviews_tab" role="tabpanel" aria-labelledby="nav-home-tab">
+          <div class="tab-pane active in" id="reviews_tab" role="tabpanel" aria-labelledby="nav-home-tab">
             <ul class="list post-list">
 			  <% @related_reviews.each do |related_review| %>
 				<li>
 					<div class="thumbnail overlay">
 						<%= link_to review_path(id: related_review.id) do %>
-						<img width="75" height="75" src="https://cdn3.ivivu.com/2014/10/Du-lich-vung-tau-cam-nang-tu-a-den-z-iVIVU.com-1-75x75.jpg" class="attachment-fp75_75 wp-post-image" alt="Vẻ đẹp của du lịch Vũng Tàu. Ảnh: dulichgiahy">
+						<img width="75" height="75" src="<%= url_for(related_review.tour.image) %>" class="attachment-fp75_75 wp-post-image" alt="<%= related_review.tour.name %>">
 						<% end %>
 					</div>
 					<div class="post-right">
@@ -58,7 +58,7 @@
 					<li>
 					<div class="thumbnail overlay">
 					<%= link_to review_path(id: newest_review.id) do %>
-					<img width="75" height="75" src="https://cdn3.ivivu.com/2014/10/Du-lich-vung-tau-cam-nang-tu-a-den-z-iVIVU.com-1-75x75.jpg" class="attachment-fp75_75 wp-post-image" alt="Vẻ đẹp của du lịch Vũng Tàu. Ảnh: dulichgiahy">
+					<img width="75" height="75" src="<%= url_for(newest_review.tour.image) %>" class="attachment-fp75_75 wp-post-image" alt="<%= newest_review.tour.name %>">
 					<% end %>
 				</div>
 				<div class="post-right">

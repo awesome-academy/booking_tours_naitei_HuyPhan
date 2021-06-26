@@ -9,15 +9,12 @@ class BookingToursController < ApplicationController
   def show; end
 
   def destroy
-    @booking_tour.cancel!
-    flash[:success] = "Đã thực hiện hủy bỏ thành công"
-
-  rescue
-    flash[:error] = "Đã có lỗi xảy ra vui long tải lại trang"
-  ensure
-    respond_to do |format|
-      format.js
+    if @booking_tour.cancel!
+      flash[:success] = "Đã thực hiện hủy bỏ thành công"
+    else
+      flash[:error] = "Hủy thất bại"
     end
+    redirect_to booking_tours_path
   end
 
   def create

@@ -8,7 +8,7 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    @review = @tour.reviews.new review_params.merge(feel_status: 0)
+    @review = @tour.reviews.new review_params.merge(feel_status: 2)
     if @review.save
       flash[:info] = "Tạo review thành công"
     else
@@ -42,32 +42,32 @@ class ReviewsController < ApplicationController
 
 
 
-  def from_url_view
-    render "reviews/from_url"
-  end
+  # def from_url_view
+  #   render "reviews/from_url"
+  # end
 
-  def from_url
-    @tour = Tour.find_by id: 1
-    @review = @tour.reviews.new
-    @agent = Mechanize.new
-    @agent.get params[:review_params][:url]
-    @var = @agent.page.search('.entry-content').to_s
-    @review.content = @var
-    @review.point = rand(1..5)
-    @review.user_id = 1
-    @review.tour_id = 1
-    @review.status = 0
-    @review.is_active = false
-    # @review.is_positive = false
-    @review.save
-    render "reviews/from_url"
-  end
+  # def from_url
+  #   @tour = Tour.find_by id: 1
+  #   @review = @tour.reviews.new
+  #   @agent = Mechanize.new
+  #   @agent.get params[:review_params][:url]
+  #   @var = @agent.page.search('.entry-content').to_s
+  #   @review.content = @var
+  #   @review.point = rand(1..5)
+  #   @review.user_id = 1
+  #   @review.tour_id = 1
+  #   @review.status = 0
+  #   @review.is_active = false
+  #   # @review.is_positive = false
+  #   @review.save
+  #   render "reviews/from_url"
+  # end
 
   def show
       @review = Review.find_by id: params[:id]
-      @related_reviews = Review.where(["tour_id = ? and id != ?", @review.tour_id, @review.id]).limit(5)
-      @newest_reviews = Review.order(created_at: :desc).limit(5)
-  
+      @related_reviews = Review.where(["tour_id = ? and id != ?", @review.tour_id, @review.id]).limit(5).includes(:tour)
+      @newest_reviews = Review.order(created_at: :desc).limit(5).includes(:tour)
+
   end
 
   def edit

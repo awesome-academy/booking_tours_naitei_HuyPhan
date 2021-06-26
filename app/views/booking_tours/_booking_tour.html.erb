@@ -16,7 +16,7 @@
   <th scope="row"><%= booking_tour.status %></th>
   <th scope="row">
     <% if booking_tour.waiting? %>
-      <%= link_to booking_tour_path(id: booking_tour.id), method: :delete, data: {confirm: "Bạn có chắc chắn muốn hủy tour"},  class: "btn btn-danger", style: "width: 90px", remote: true do %>
+      <%= link_to booking_tour_peath(id: booking_tour.id), method: :delete, data: {confirm: "Bạn có chắc chắn muốn hủy tour"},  class: "btn btn-danger", style: "width: 90px", remote: true do %>
         <i class="fa fa-times-circle-o"></i> Cancel
       <% end %>
     <% end %>
